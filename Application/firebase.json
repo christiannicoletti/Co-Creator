@@ -1,11 +1,15 @@
 {
+  "firestore": {
+    "rules": "firestorerules",
+    "indexes": "firestoreindexes"
+  },
   "functions": {
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint"
     ]
   },
   "hosting": {
-    "public": "Application/build",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -17,5 +21,8 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "storage": {
+    "rules": "storagerules"
   }
 }
