@@ -1,0 +1,14 @@
+.SideImage {
+    top: 10%;
+    left: 48%;
+    position: absolute;
+}
+
+.Background {
+    position: absolute;
+}
+
+.Text {
+    position: absolute;
+    color: white;
+}
