@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
 import './App.css';
+import Layout from './components/Layout/Layout';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Site is under construction
-        </p>
-        <a
-          className="App-link"
-          href="https://www.youtube.com/watch?v=u5KQQWlIgGc"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Funny video I found
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {}
+  render() { 
+    return (
+      <Layout />
+    );
+  }
 }
-
+ 
 export default App;
