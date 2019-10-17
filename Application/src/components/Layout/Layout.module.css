@@ -9,6 +9,7 @@
 }
 
 .Text {
+    width: 150px;
     position: relative;
     color: white;
 }
