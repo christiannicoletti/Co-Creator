@@ -1,0 +1,53 @@
+.SideImage {
+    top: 20%;
+    left: 50%;
+    min-width: 600px;
+    position: absolute;
+}
+
+.UiContainer {
+    top: 20%;
+    left: 17%;
+    position: absolute;
+}
+
+.Slogan {
+    top: 63%;
+    left: 15%;
+    font-size: 30px;
+    position: absolute;
+    font-family: 'Economica', sans-serif;
+    color: white;
+}
+
+.Button {
+    text-align: center;
+    top: 85%;
+    left: 26%;
+    position: absolute;
+}
+
+.Line {
+    top: 325px;
+    left: 120px;
+    width: 112px;
+    height: 47px;
+    border-bottom: 1px solid white;
+    position: absolute;
+}
+
+.OR {
+    color: white;
+    top: 56px;
+    position: relative;
+    text-align: center;
+}
+
+.Line2 {
+    top: 325px;
+    left: 300px;
+    width: 112px;
+    height: 47px;
+    border-bottom: 1px solid white;
+    position: absolute;
+}
