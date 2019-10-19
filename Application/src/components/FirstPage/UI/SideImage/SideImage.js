@@ -1,6 +1,6 @@
 import React from "react";
 
-import Image from "../../../../assets/images/StartupPage/StartupSidePicture.png";
+import Image from "../../../../assets/images/FirstPage/StartupSidePicture.png";
 
 const sideimage = () => (
   <div>

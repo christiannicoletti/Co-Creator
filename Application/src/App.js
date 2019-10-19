@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 
-import StartPage from "./components/StartPage/StartPage";
+import StartPage from "./components/FirstPage/FirstPage";
 import WithClass from "./hoc/withClass";
 
 class App extends Component {

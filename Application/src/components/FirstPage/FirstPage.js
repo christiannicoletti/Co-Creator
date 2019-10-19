@@ -1,14 +1,14 @@
 import React from "react";
 
-import classes from "./StartPage.module.css";
+import classes from "./FirstPage.module.css";
 
-import SideImage from "../UI/StartPage/SideImage/SideImage";
-import Layout from "../Layout/StartPage/Layout";
+import SideImage from "./UI/SideImage/SideImage";
+import Layout from "./Layout/Layout";
 import WithClass from "../../hoc/withClass";
-import Logo from "../UI/StartPage/Logo/Logo";
-import Button from "../UI/Buttons/Buttons";
-import Apple from "../UI/StartPage/Apple/Apple";
-import GooglePlay from "../UI/StartPage/GooglePlay/GooglePlay";
+import Logo from "./UI/Logo/Logo";
+import Button from "./UI/Buttons/Buttons";
+import Apple from "./UI/Apple/Apple";
+import GooglePlay from "./UI/GooglePlay/GooglePlay";
 import { NavLink } from "react-router-dom";
 
 const ui = () => (

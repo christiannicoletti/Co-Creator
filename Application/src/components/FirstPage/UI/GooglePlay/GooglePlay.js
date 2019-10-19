@@ -1,7 +1,7 @@
 import React from "react";
 
-import Image from "../../../../assets/images/apple.png";
-import classes from "./Apple.module.css";
+import Image from "../../../../assets/images/FirstPage/googleplay.png";
+import classes from "./GooglePlay.module.css";
 
 const logo = () => (
   <div className={classes.Asset}>

@@ -1,7 +1,7 @@
 import React from "react";
 
-import Image from "../../../../assets/images/StartupPage/Co-Creator.png";
-import classes from "./Logo.module.css";
+import Image from "../../../../assets/images/FirstPage/apple.png";
+import classes from "./Apple.module.css";
 
 const logo = () => (
   <div className={classes.Asset}>
