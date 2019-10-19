@@ -5,3 +5,9 @@
     top: 70px;
     left: 18.7%;
 }
+
+@media (max-width: 1750px) {
+    .Main {
+        left: 324px;
+    }
+  }

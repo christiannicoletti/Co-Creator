@@ -9,12 +9,13 @@
 
 .SideImage {
   top: 20%;
-  left: 905px;
+  left: 54%;
+  min-width: 200px;
 }
 
 .UiContainer {
   top: 20%;
-  left: 17%;
+  left: 20%;
 }
 
 .Slogan {
@@ -72,4 +73,14 @@
 
 .GooglePlay {
   left: 55%;
+}
+
+@media (max-width: 1750px) {
+  .SideImage {
+    left: 935px;
+  }
+
+  .UiContainer {
+    left: 347px;
+  }
 }

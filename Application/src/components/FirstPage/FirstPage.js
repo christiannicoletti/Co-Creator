@@ -10,22 +10,24 @@ import Logo from "./UI/Logo/Logo";
 import Button from "./UI/Buttons/Buttons";
 import Apple from "./UI/Apple/Apple";
 import GooglePlay from "./UI/GooglePlay/GooglePlay";
+import Background from "../Background/Background";
 
 /**
  * First Default landing page
- * 
+ *
  * Called by App.js in <Route>
  */
 const ui = () => (
   <WithClass>
+    <Background />
     <Layout />
-    <SideImage className={classes.SideImage}/>
+    <SideImage className={classes.SideImage} />
     <div className={classes.UiContainer}>
       <Logo />
       <div className={classes.Slogan}>
         Making the project creation process easier
       </div>
-      <Button title="Find Projects >" className={classes.Button}/>
+      <Button title="Find Projects >" className={classes.Button} />
       <div className={classes.Line} />
       <div className={classes.OR}>OR</div>
       <div className={classes.Line2} />
@@ -34,7 +36,7 @@ const ui = () => (
         <Apple className={classes.Apple} />
       </NavLink>
       <NavLink to="GooglePlay">
-        <GooglePlay className={classes.GooglePlay}/>
+        <GooglePlay className={classes.GooglePlay} />
       </NavLink>
     </div>
   </WithClass>
