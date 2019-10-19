@@ -9,11 +9,13 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+// Necessary block for Stores and Reducers
 const composeEnhancers =
   process.env.NODE_ENV === "development"
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : null || compose;
 
+// Reducers
 const rootReducer = combineReducers({});
 
 // Store

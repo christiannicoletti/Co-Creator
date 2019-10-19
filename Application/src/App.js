@@ -4,6 +4,11 @@ import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import StartPage from "./components/FirstPage/FirstPage";
 import WithClass from "./hoc/withClass";
 
+/**
+ * Contains switch routing to components
+ * 
+ * Called by index.js in ReactDOM.render()
+ */
 class App extends Component {
   render() {
     return (
