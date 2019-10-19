@@ -32,12 +32,21 @@
   left: 26%;
 }
 
-.Line {
-  top: 329px;
-  left: 22%;
+.Line, .Line2 {
   width: 112px;
   height: 47px;
   border-bottom: 1px solid white;
+}
+
+.Line {
+  top: 329px;
+  left: 22%;
+
+}
+
+.Line2 {
+  top: 329px;
+  left: 57%;
 }
 
 .OR,
@@ -46,14 +55,6 @@
   top: 60px;
   position: relative;
   text-align: center;
-}
-
-.Line2 {
-  top: 329px;
-  left: 57%;
-  width: 112px;
-  height: 47px;
-  border-bottom: 1px solid white;
 }
 
 .GetApp {
