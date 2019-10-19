@@ -10,9 +10,7 @@ class Layout extends Component {
   render() {
     return (
       <WithClass>
-        <div className={classes.Background}>
-          <Background />
-        </div>
+        <Background />
         <StartPageToolbar />
         <StartPageFootbar />
       </WithClass>

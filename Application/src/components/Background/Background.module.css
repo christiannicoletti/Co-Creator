@@ -1,0 +1,6 @@
+.Bg {
+    background: url(../../assets/images/Background-gradient.png) no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}

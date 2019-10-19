@@ -2,9 +2,9 @@ import React from "react";
 
 import Image from "../../../../assets/images/FirstPage/StartupSidePicture.png";
 
-const sideimage = () => (
+const sideimage = (props) => (
   <div>
-    <img src={Image} />
+    <img src={Image} className={props.className}/>
   </div>
 );
 

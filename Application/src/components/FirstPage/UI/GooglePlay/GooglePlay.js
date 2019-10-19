@@ -3,10 +3,8 @@ import React from "react";
 import Image from "../../../../assets/images/FirstPage/googleplay.png";
 import classes from "./GooglePlay.module.css";
 
-const logo = () => (
-  <div className={classes.Asset}>
-    <img src={Image} />
-  </div>
+const googleplay = (props) => (
+  <img src={Image} className={`${props.className} ${classes.Asset}`}/>
 );
 
-export default logo;
+export default googleplay;

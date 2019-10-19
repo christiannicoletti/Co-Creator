@@ -1,11 +1,9 @@
 import React from "react";
 
-import BgImage from "../../assets/images/Background-gradient.png";
+import classes from './Background.module.css';
 
 const background = () => (
-  <div>
-    <img src={BgImage} />
-  </div>
+  <div className={classes.Bg} />
 );
 
 export default background;
