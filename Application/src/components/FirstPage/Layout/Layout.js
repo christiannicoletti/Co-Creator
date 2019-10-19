@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 
-import classes from "./Layout.module.css";
 import WithClass from "../../../hoc/withClass";
-import StartPageToolbar from "../Navigation/StartPageHeaders/Toolbar/Toolbar";
-import StartPageFootbar from "../Navigation/StartPageHeaders/Footbar/Footbar";
+import StartPageToolbar from "../Navigation/Toolbar/Toolbar";
+import StartPageFootbar from "../Navigation/Footbar/Footbar";
 import Background from "../../Background/Background";
 
+/**
+ * Layouts contain the background top and (optional)bottom nav
+ * 
+ * Called by FirstPage.js
+ */
 class Layout extends Component {
   render() {
     return (
