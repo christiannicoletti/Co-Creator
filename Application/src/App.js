@@ -7,14 +7,12 @@ import WithClass from "./hoc/withClass";
 class App extends Component {
   render() {
     return (
-      <div>
-        <WithClass>
-          <Switch>
-            <Route path="/" exact component={StartPage} />
-            <Redirect to="/" /> {/* Redirect anything other than routes specified to "/" */}
-          </Switch>
-        </WithClass>
-      </div>
+      <WithClass>
+        <Switch>
+          <Route path="/" exact component={StartPage} />
+          <Redirect to="/" /> {/* Redirect anything other than routes specified to "/" */}
+        </Switch>
+      </WithClass>
     );
   }
 }
