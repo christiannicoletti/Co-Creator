@@ -1,21 +1,27 @@
+.SideImage,
+.UiContainer,
+.Slogan,
+.Button,
+.Line,
+.Line2 {
+  position: absolute;
+}
+
 .SideImage {
   top: 20%;
   left: 50%;
   min-width: 600px;
-  position: absolute;
 }
 
 .UiContainer {
   top: 20%;
   left: 17%;
-  position: absolute;
 }
 
 .Slogan {
   top: 63%;
   left: 15%;
   font-size: 30px;
-  position: absolute;
   font-family: "Economica", sans-serif;
   color: white;
 }
@@ -24,7 +30,6 @@
   text-align: center;
   top: 85%;
   left: 26%;
-  position: absolute;
 }
 
 .Line {
@@ -33,7 +38,6 @@
   width: 112px;
   height: 47px;
   border-bottom: 1px solid white;
-  position: absolute;
 }
 
 .OR,
@@ -50,7 +54,6 @@
   width: 112px;
   height: 47px;
   border-bottom: 1px solid white;
-  position: absolute;
 }
 
 .GetApp {
