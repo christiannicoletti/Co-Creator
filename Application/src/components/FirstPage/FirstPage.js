@@ -25,7 +25,7 @@ const ui = () => (
       <div className={classes.Slogan}>
         Making the project creation process easier
       </div>
-      <Button title="Find Projects >" className={classes.Button}/> {/* className loads &overwrites OG component className */}
+      <Button title="Find Projects >" className={classes.Button}/>
       <div className={classes.Line} />
       <div className={classes.OR}>OR</div>
       <div className={classes.Line2} />
