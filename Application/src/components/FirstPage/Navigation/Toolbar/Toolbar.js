@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Searchbar from '../../Searchbar/Searchbar';
+import Searchbar from '../Searchbar/Searchbar';
 import NavigationItems from './NavigationItems/NavigationItems';
 import classes from './Toolbar.module.css';
 
