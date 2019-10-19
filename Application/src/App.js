@@ -11,7 +11,7 @@ class App extends Component {
         <WithClass>
           <Switch>
             <Route path="/" exact component={StartPage} />
-            <Redirect to="/" />
+            <Redirect to="/" /> {/* Redirect anything other than routes specified to "/" */}
           </Switch>
         </WithClass>
       </div>
