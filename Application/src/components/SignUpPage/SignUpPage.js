@@ -1,25 +1,22 @@
 import React, { Component } from "react";
 
+import classes from "./SignUpPage.module.css";
+
 import WithClass from "../../hoc/withClass";
 import Background from "../Background/Background";
+import SideImage from './UI/SideImage/SideImage';
 
 /**
- * First Default landing page
+ * User Signup Page
  *
- * Called by App.js in <Route>
+ * Called by FirstPage.js in <Button>
  */
 class ui extends Component {
-
-  findProjectsContinued = () => {
-    this.props.history.push({
-      pathname: '/signup',
-    });
-  }
-
   render() {
     return (
       <WithClass>
         <Background />
+        <SideImage className={classes.SideImage} />
       </WithClass>
     );
   }

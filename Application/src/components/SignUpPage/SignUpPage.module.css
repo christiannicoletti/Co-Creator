@@ -1,0 +1,12 @@
+.SideImage {
+    top: 20%;
+    left: 14%;
+    min-width: 200px;
+    position: absolute;
+}
+
+@media (max-width: 1750px) {
+    .SideImage {
+      left: 235px;
+    }
+}
