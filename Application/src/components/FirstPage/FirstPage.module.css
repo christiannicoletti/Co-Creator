@@ -19,7 +19,7 @@
 }
 
 .Slogan {
-  top: 63%;
+  top: 58%;
   left: 15%;
   font-size: 30px;
   font-family: "Economica", sans-serif;
@@ -35,23 +35,22 @@
 .Line, .Line2 {
   width: 112px;
   height: 47px;
+  top: 359px;
   border-bottom: 1px solid white;
 }
 
 .Line {
-  top: 329px;
   left: 22%;
 
 }
 
 .Line2 {
-  top: 329px;
   left: 57%;
 }
 
 .OR,
 .GetApp {
-  top: 60px;
+  top: 45px;
   position: relative;
   text-align: center;
   color: white;
