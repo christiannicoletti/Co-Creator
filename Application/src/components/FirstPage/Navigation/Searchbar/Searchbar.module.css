@@ -1,5 +1,5 @@
 .Searchbar {
-  background: url(../../../../assets/images/magnifyglass.png) 6px no-repeat;
+  background: url(../../../../assets/images/magnifyglass.ico) 6px no-repeat;
   background-size: 20px;
   position: relative;
   top: 51%;
@@ -14,6 +14,7 @@
   color: white;
 }
 
-.Searchbar:hover {
+.Searchbar:hover,
+.Searchbar:focus {
   background-color: rgb(255, 255, 255, 0.4);
 }
