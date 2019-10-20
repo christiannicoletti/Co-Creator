@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-
-import classes from "./SignUpPage.module.css";
+import React, { Component } from 'react';
+import classes from "./SignupPage.module.css";
 
 import WithClass from "../../hoc/withClass";
 import Background from "../Background/Background";
 import SideImage from './UI/SideImage/SideImage';
+import Form from './Form/Form';
 
 /**
  * User Signup Page
  *
- * Called by FirstPage.js in <Button>
+ * Called by NavItems.js in <NavLink>
  */
 class ui extends Component {
   render() {
@@ -17,6 +17,7 @@ class ui extends Component {
       <WithClass>
         <Background />
         <SideImage className={classes.SideImage} />
+        <Form className={classes.Form}/>
       </WithClass>
     );
   }

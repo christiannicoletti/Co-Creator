@@ -1,8 +1,14 @@
 .SideImage {
-    top: 27%;
-    left: 14%;
+    top: 30%;
+    left: 20%;
     min-width: 200px;
     position: absolute;
+}
+
+.Form {
+  position: absolute;
+  top: 30%;
+  left: 54%;
 }
 
 @media (max-width: 1750px) {
