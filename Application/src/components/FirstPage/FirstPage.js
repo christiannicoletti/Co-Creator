@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 import classes from "./FirstPage.module.css";
@@ -17,29 +17,43 @@ import Background from "../Background/Background";
  *
  * Called by App.js in <Route>
  */
-const ui = () => (
-  <WithClass>
-    <Background />
-    <Layout />
-    <SideImage className={classes.SideImage} />
-    <div className={classes.UiContainer}>
-      <Logo />
-      <div className={classes.Slogan}>
-        Making the project creation process easier
-      </div>
-      <Button title="Find Projects >" className={classes.Button} />
-      <div className={classes.Line} />
-      <div className={classes.OR}>OR</div>
-      <div className={classes.Line2} />
-      <div className={classes.GetApp}>Get the app</div>
-      <NavLink to="Apple">
-        <Apple className={classes.Apple} />
-      </NavLink>
-      <NavLink to="GooglePlay">
-        <GooglePlay className={classes.GooglePlay} />
-      </NavLink>
-    </div>
-  </WithClass>
-);
+class ui extends Component {
+  findProjectsContinued = () => {
+    this.props.history.push({
+      pathname: '/signup',
+    });
+  }
+
+  render() {
+    return (
+      <WithClass>
+        <Background />
+        <Layout />
+        <SideImage className={classes.SideImage} />
+        <div className={classes.UiContainer}>
+          <Logo />
+          <div className={classes.Slogan}>
+            Making the project creation process easier
+          </div>
+          <Button
+            title="Find Projects >"
+            className={classes.Button}
+            clicked={this.findProjectsContinued}
+          />
+          <div className={classes.Line} />
+          <div className={classes.OR}>OR</div>
+          <div className={classes.Line2} />
+          <div className={classes.GetApp}>Get the app</div>
+          <NavLink to="Apple">
+            <Apple className={classes.Apple} />
+          </NavLink>
+          <NavLink to="GooglePlay">
+            <GooglePlay className={classes.GooglePlay} />
+          </NavLink>
+        </div>
+      </WithClass>
+    );
+  }
+}
 
 export default ui;
