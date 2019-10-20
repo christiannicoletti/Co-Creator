@@ -20,7 +20,7 @@ import Background from "../Background/Background";
 class ui extends Component {
   findProjectsContinued = () => {
     this.props.history.push({
-      pathname: '/signup',
+      pathname: '/projects',
     });
   }
 
