@@ -9,7 +9,7 @@ const navigationItems = props => {
       <NavigationItem link="/" exact>
         <strong>How to start</strong>
       </NavigationItem>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/signup" exact>
         Create an account
       </NavigationItem>
       <NavigationItem link="/" exact>
