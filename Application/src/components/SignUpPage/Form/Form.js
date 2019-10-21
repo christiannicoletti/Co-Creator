@@ -8,11 +8,37 @@ import { checkValidity, updateObject} from '../../../shared/utility';
 class userform extends Component {
   state = {
     userForm: {
+      fullname: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Full Name"
+        },
+        value: "",
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
+      },
       email: {
         elementType: "input",
         elementConfig: {
           type: "email",
-          placeholder: "Your Email"
+          placeholder: "Email"
+        },
+        value: "",
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
+      },
+      username: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Username"
         },
         value: "",
         validation: {
@@ -24,8 +50,8 @@ class userform extends Component {
       password: {
         elementType: "input",
         elementConfig: {
-          type: "text",
-          placeholder: "New Password"
+          type: "password",
+          placeholder: "Password"
         },
         value: "",
         validation: {
