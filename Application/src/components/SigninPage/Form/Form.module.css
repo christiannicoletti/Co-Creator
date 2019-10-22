@@ -1,9 +1,10 @@
 .Logo {
+    position: relative;
     height: 200px;
+    left: -5px;
 }
 
 .Input {
-    top: 140px;
-    left: 53px;
+    top: 150px;
     position: absolute;
 }
