@@ -1,0 +1,48 @@
+.Form {
+  position: absolute;
+  top: 300px;
+  left: 39.5%;
+}
+
+.Button {
+  position: absolute;
+  padding: 0px 0px;
+  font-size: 21px;
+  height: 30px;
+  width: 240px;
+  top: 550px;
+  left: 42.7%;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3); 
+}
+
+.ForgotPassword {
+  top: 590px;
+  left: 42%;
+  font-size: 13px;
+  position: absolute;
+  color: white;
+  text-decoration: none;
+}
+
+.CreateAnAccount {
+  top: 590px;
+  left: 51%;
+  font-size: 13px;
+  position: absolute;
+  color: white;
+  text-decoration: none;
+}
+
+
+@media (max-width: 1200px) {
+    .SideImage {
+      left: 235px;
+    }
+    .Agreement,
+    .Form,
+    .Button,
+    .ForgotPassword,
+    .CreateAnAccount {
+      left: 835px;
+    }
+}
