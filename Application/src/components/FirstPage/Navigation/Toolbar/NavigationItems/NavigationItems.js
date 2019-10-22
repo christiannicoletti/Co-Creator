@@ -12,7 +12,7 @@ const navigationItems = props => {
       <NavigationItem link="/signup" exact>
         Create an account
       </NavigationItem>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/signin" exact>
         Sign in
       </NavigationItem>
     </ul>
