@@ -1,0 +1,12 @@
+.NavItemContainer {
+    margin: 0 20px;
+}
+
+.NavigationItem {
+    display: block;
+}
+
+.NavigationItem a {
+    color: white;
+    text-decoration: none;
+}

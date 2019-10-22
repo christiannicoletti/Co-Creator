@@ -1,0 +1,23 @@
+.NavItemContainer {
+    margin: 0 25px;     /* Margin between items */
+}
+
+.NavigationItem {
+    display: block;     /* Used for ridding the bullet point */
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.NavigationItem a {
+    color: white;
+    text-decoration: none;  /* Remove underlining */
+}
+
+.NavigationItem:hover,
+.NavigationItem:focus {
+    background-color: rgb(0, 225, 255);
+}
+
