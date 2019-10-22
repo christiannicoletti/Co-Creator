@@ -1,6 +1,6 @@
 import React from "react";
 
-import Image from "../../../assets/images/FirstPage/Co-Creator.png";
+import Image from "../../../assets/images/FirstPage/Co-Creator.ico";
 import classes from "./Logo.module.css";
 
 const logo = (props) => (
