@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from "../../../../assets/images/SignupPage/SignupSidePicture.png";
+import Image from "../../../../assets/images/SignupPage/SignupSidePicture.ico";
 
 // Side Image for the First Page
 const sideimage = (props) => (

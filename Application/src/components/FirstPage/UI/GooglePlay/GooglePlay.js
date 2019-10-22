@@ -1,6 +1,6 @@
 import React from "react";
 
-import Image from "../../../../assets/images/FirstPage/googleplay.png";
+import Image from "../../../../assets/images/FirstPage/googleplay.ico";
 import classes from "./GooglePlay.module.css";
 
 /**

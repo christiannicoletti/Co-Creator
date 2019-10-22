@@ -1,6 +1,6 @@
 import React from "react";
 
-import Image from "../../../../assets/images/FirstPage/apple.png";
+import Image from "../../../../assets/images/FirstPage/apple.ico";
 import classes from "./Apple.module.css";
 
 /**
