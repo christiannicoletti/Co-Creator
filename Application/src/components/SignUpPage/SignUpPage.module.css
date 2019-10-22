@@ -2,8 +2,8 @@
   position: relative;
   display: flex;
   width: 100vw;
-  top: 150px;
-  left: -100px;
+  top: 200px;
+  left: -50px;
   justify-content: center;
   align-items: center;
 }
@@ -11,7 +11,8 @@
 .UiContainer {
   position: relative;
   display: flex;
-  left: 100px;
+  top: -50px;
+  left: 50px;
   flex-direction: column;
 }
 
@@ -32,6 +33,7 @@
 .Button {
   position: relative;
   top: 15px;
+  margin: auto;
   padding: 0px 0px;
   font-size: 21px;
   height: 30px;

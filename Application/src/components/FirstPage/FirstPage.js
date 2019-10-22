@@ -29,7 +29,7 @@ class ui extends Component {
       <WithClass>
         <Background />
         <Layout />
-        <SideImage className={classes.SideImage} />
+        <div className={classes.MainContainer}>
         <div className={classes.UiContainer}>
           <Logo />
           <div className={classes.Slogan}>
@@ -40,17 +40,23 @@ class ui extends Component {
             className={classes.Button}
             clicked={this.findProjectsContinued}
           />
+          <div className={classes.ORContainer}>
           <div className={classes.Line} />
           <div className={classes.OR}>OR</div>
           <div className={classes.Line2} />
+          </div>
           <div className={classes.GetApp}>Get the app</div>
-          <NavLink to="Apple">
-            <Apple className={classes.Apple} />
-          </NavLink>
-          <NavLink to="GooglePlay">
-            <GooglePlay className={classes.GooglePlay} />
-          </NavLink>
+          <div className={classes.IconContainer}>
+            <NavLink to="Apple">
+              <Apple className={classes.Apple} />
+            </NavLink>
+            <NavLink to="GooglePlay">
+              <GooglePlay className={classes.GooglePlay} />
+            </NavLink>
+          </div>
         </div>
+        <SideImage className={classes.SideImage} />
+      </div>
       </WithClass>
     );
   }
