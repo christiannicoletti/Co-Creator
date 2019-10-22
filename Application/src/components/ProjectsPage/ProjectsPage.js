@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
+import Layout from "../shared/Layout/Layout";
 import WithClass from "../../hoc/withClass";
-import Background from "../Background/Background";
+import Background from "../shared/Background/Background";
 
 /**
  * Main projects Page
@@ -13,6 +14,7 @@ class ui extends Component {
     return (
       <WithClass>
         <Background />
+        <Layout />
       </WithClass>
     );
   }

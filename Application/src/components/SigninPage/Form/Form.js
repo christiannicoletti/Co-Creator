@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import classes from './Form.module.css';
 
-import Logo from '../../FirstPage/UI/Logo/Logo';
+import Logo from '../../shared/Logo/Logo';
 import Input from '../UI/Input/Input';
 import { checkValidity, updateObject} from '../../../shared/utility';
 

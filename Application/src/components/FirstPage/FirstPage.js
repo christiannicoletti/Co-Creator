@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 import classes from "./FirstPage.module.css";
 
 import WithClass from "../../hoc/withClass";
-import Layout from "./Layout/Layout";
+import Layout from "../shared/Layout/Layout";
 import SideImage from "./UI/SideImage/SideImage";
-import Logo from "./UI/Logo/Logo";
-import Button from "./UI/Buttons/Buttons";
+import Logo from "../shared/Logo/Logo";
+import Button from "../shared/UI/Buttons/Buttons";
 import Apple from "./UI/Apple/Apple";
 import GooglePlay from "./UI/GooglePlay/GooglePlay";
-import Background from "../Background/Background";
+import Background from "../shared/Background/Background";
 
 /**
  * First Default landing page

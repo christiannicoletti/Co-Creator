@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import classes from './Form.module.css';
-
 import Input from '../UI/Input/Input';
 import { checkValidity, updateObject} from '../../../shared/utility';
 
@@ -118,7 +116,6 @@ class userform extends Component {
     );
     return (
       <div className={this.props.className}>
-        <div className={classes.Text}><strong>Sign up</strong></div>
         {form}
       </div>
     );
