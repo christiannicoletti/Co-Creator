@@ -33,7 +33,7 @@ class ui extends Component {
             <div className={classes.AlreadyHaveAccount}>
               Already have an account?
             </div>
-            <NavLink className={classes.SignIn} to="signin"><strong>Sign in</strong></NavLink>
+            <NavLink className={classes.SignIn} to="signin">Sign in</NavLink>
           </div>
         </div>
       </WithClass>
