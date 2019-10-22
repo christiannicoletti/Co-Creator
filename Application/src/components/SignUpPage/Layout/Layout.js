@@ -1,7 +1,7 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from 'react';
 
 import WithClass from "../../../hoc/withClass";
-import StartPageToolbar from "../Navigation/Toolbar/Toolbar";
+import Toolbar from "../../FirstPage/Navigation/Toolbar/Toolbar";
 
 /**
  * Layouts contain the background top  nav
@@ -12,7 +12,7 @@ class Layout extends Component {
   render() {
     return (
       <WithClass>
-        <StartPageToolbar />
+        <Toolbar />
       </WithClass>
     );
   }
