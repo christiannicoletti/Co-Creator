@@ -118,7 +118,7 @@ class userform extends Component {
     );
     return (
       <div className={this.props.className}>
-        <div className={classes.Text}>Sign up</div>
+        <div className={classes.Text}><strong>Sign up</strong></div>
         {form}
       </div>
     );
