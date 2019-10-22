@@ -1,41 +1,54 @@
-.MainContainer {
+.MainContainer,
+.SideImage,
+.UiContainer,
+.Slogan,
+.Button,
+.Line,
+.Line2,
+.OR,
+.GetApp,
+.Apple,
+.GooglePlay {
   position: relative;
+}
+
+.MainContainer,
+.SideImage,
+.UiContainer,
+.IconContainer,
+.ORContainer {
   display: flex;
+}
+
+.MainContainer {
   width: 100vw;
-  justify-content: center;
   top: 100px;
+  justify-content: center;
 }
 
 .SideImage {
-  display: flex;
-  position: relative;
   left: 20px;
 }
 
 .UiContainer {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   left: -20px;
+  flex-direction: column;
 }
 
 .Slogan {
-  position: relative;
-  margin: 0 auto;
   top: -80px;
   font-size: 30px;
-  font-family: "Economica", sans-serif;
+  margin: 0 auto;
   color: white;
+  font-family: "Economica", sans-serif;
 }
 
 .Button {
-  position: relative;
   top: -30px;
   margin: 0 auto;
 }
 
 .Line, .Line2 {
-  position: relative;
   width: 112px;
   height: 47px;
   top: -15px;
@@ -51,42 +64,27 @@
 }
 
 .ORContainer {
-  display: flex;
   justify-content: center;
 }
 
 .OR,
 .GetApp {
-  position: relative;
-  text-align: center;
   top: 20px;
   color: white;
+  text-align: center;
 }
 
 .GetApp {
-  position: relative;
   top: 20px;
 }
 
 .IconContainer {
-  display: flex;
   width: 100%;
   justify-content: center;
 }
 
 .Apple,
 .GooglePlay {
-  position: relative;
   top: 50px;
   margin: 0 20px;
-}
-
-@media (max-width: 1000px) {
-  .SideImage {
-    left: 935px;
-  }
-
-  .UiContainer {
-    left: 347px;
-  }
 }

@@ -1,66 +1,72 @@
-.MainContainer {
+.MainContainer,
+.UiContainer,
+.Text,
+.AlreadyHaveAccount,
+.SignIn,
+.Button,
+.Agreement {
   position: relative;
+}
+
+.MainContainer,
+.UiContainer,
+.Text,
+.AlreadyHaveAccount,
+.SignIn,
+.Form {
   display: flex;
+}
+
+.MainContainer {
   width: 100vw;
   top: 200px;
   left: -50px;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .UiContainer {
-  position: relative;
-  display: flex;
   top: -50px;
   left: 50px;
   flex-direction: column;
 }
 
 .Text {
-  position: relative;
-  font-size: 25px;
   top: -5px;
-  justify-content: center;
-  display: flex;
+  font-size: 25px;
   color: white;
+  justify-content: center;
 }
 
 .Form {
-  display: flex;
   justify-content: center;
 }
 
 .Button {
-  position: relative;
   top: 15px;
-  margin: auto;
   padding: 0px 0px;
   font-size: 21px;
   height: 30px;
   width: 240px;
-  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3); 
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3);
+  margin: 0 auto;
 }
 
 .Agreement {
-  position: relative;
   top: 5px;
   font-size: 10px;
   color: white;
 }
 
 .AlreadyHaveAccount {
-  position: relative;
   top: 25px;
-  display: flex;
-  justify-content: center;
   font-size: 10px;
   color: white;
+  justify-content: center;
 }
 
 .SignIn {
-  position: relative;
   top: 30px;
-  display: flex;
-  justify-content: center;
   font-size: 10px;
+  justify-content: center;
 }

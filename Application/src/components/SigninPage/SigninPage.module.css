@@ -1,32 +1,42 @@
-.Form {
-  position: absolute;
+.Container,
+.Form,
+.Button,
+.ButtonContainer,
+.TextContainer {
+  position: relative;
+}
+
+.Form,
+.ButtonContainer,
+.TextContainer {
   display: flex;
+}
+
+.Container {
+  top: 100px;
+}
+
+.Form {
   width: 100vw;
   justify-content: center;
-  top: 200px;
 }
 
 .Button {
-  position: absolute;
   padding: 0px 0px;
   font-size: 21px;
   height: 30px;
   width: 250px;
-  top: 365px;
-  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3); 
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3);
 }
 
 .ButtonContainer {
-  position: absolute;
-  display: flex;
   width: 100vw;
-  margin: auto;
+  top: 60px;
   justify-content: center;
 }
 
 .ForgotPassword,
 .CreateAnAccount {
-  top: 590px;
   font-size: 13px;
   color: white;
   text-decoration: none;
@@ -41,9 +51,7 @@
 }
 
 .TextContainer {
-  position: absolute;
-  display: flex;
+  top: 75px;
   width: 100vw;
-  top: 510px;
   justify-content: center;
 }
