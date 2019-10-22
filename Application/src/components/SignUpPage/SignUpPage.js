@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 import classes from "./SignupPage.module.css";
 
 import WithClass from "../../hoc/withClass";
-import Background from "../Background/Background";
+import Background from "../shared/Background/Background";
 import SideImage from './UI/SideImage/SideImage';
-import Button from '../FirstPage/UI/Buttons/Buttons';
+import Button from '../shared/UI/Buttons/Buttons';
 import Form from './Form/Form';
-import Layout from './Layout/Layout';
+import Layout from '../shared/Layout/Layout';
 
 /**
  * User Signup Page
@@ -21,16 +21,21 @@ class ui extends Component {
       <WithClass>
         <Background />
         <Layout />
-        <SideImage className={classes.SideImage} />
-        <Form className={classes.Form}/>
-        <div className={classes.Agreement}>
-          By clicking Create an Account, you agree to our <NavLink to="Terms">Terms of Use</NavLink>, and <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
+        <div className={classes.MainContainer}>
+          <SideImage className={classes.SideImage} />
+          <div className={classes.UiContainer}>
+            <div className={classes.Text}>Sign Up</div>
+            <Form className={classes.Form}/>
+            <div className={classes.Agreement}>
+              By clicking Create Account, you agree to our <NavLink to="Terms">Terms of Use</NavLink>, and <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
+            </div>
+            <Button title="Create Account >" className={classes.Button}/>
+            <div className={classes.AlreadyHaveAccount}>
+              Already have an account?
+            </div>
+            <NavLink className={classes.SignIn} to="signin"><strong>Sign in</strong></NavLink>
+          </div>
         </div>
-        <Button title="Create Account >" className={classes.Button}/>
-        <div className={classes.AlreadyHaveAccount}>
-          Already have an account?
-        </div>
-        <NavLink className={classes.SignIn} to="signin">Sign in</NavLink>
       </WithClass>
     );
   }
