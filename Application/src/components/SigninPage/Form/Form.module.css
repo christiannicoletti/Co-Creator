@@ -1,14 +1,56 @@
+.Button,
+.ButtonContainer,
+.TextContainer {
+  position: relative;
+}
+
+.ButtonContainer,
+.TextContainer {
+  display: flex;
+}
+
 .Logo {
-    position: relative;
-    display: flex;
-    height: 200px;
-    width: 400px;
-    margin: 0 auto;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  height: 200px;
+  width: 400px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .Input {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.Button {
+  font-size: 21px;
+  height: 30px;
+  width: 250px;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3);
+}
+
+.ButtonContainer {
+  top: -30px;
+  justify-content: center;
+}
+
+.ForgotPassword,
+.CreateAnAccount {
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+}
+
+.ForgotPassword {
+  margin: 0 40px;
+}
+
+.CreateAnAccount {
+  margin: 0 40px;
+}
+
+.TextContainer {
+  justify-content: center;
 }

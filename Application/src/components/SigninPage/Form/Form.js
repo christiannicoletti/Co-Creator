@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 
 import classes from './Form.module.css';
 
 import Logo from '../../shared/Logo/Logo';
 import Input from '../UI/Input/Input';
 import { checkValidity, updateObject} from '../../../shared/utility';
+import Button from "../../shared/UI/Buttons/Buttons";
 
 class userform extends Component {
   state = {
@@ -31,7 +33,7 @@ class userform extends Component {
         value: "",
         validation: {
           required: true,
-          minLength: 5
+          minLength: 6
         },
         valid: false,
         touched: false
@@ -60,7 +62,7 @@ class userform extends Component {
 
     let formIsValid = true;
     for (let inputIdentifier in updatedUserForm) {
-      formIsValid = updatedUserForm[inputIdentifier].valid && formIsValid;
+      formIsValid = updatedUserForm[inputIdentifier].valid[0] && formIsValid;
     }
 
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
@@ -83,7 +85,7 @@ class userform extends Component {
             elementType={formElement.config.elementType}
             elementConfig={formElement.config.elementConfig}
             value={formElement.config.value}
-            invalid={!formElement.config.valid}
+            invalid={!formElement.config.valid[0]}
             shouldValidate={formElement.config.validation}
             touched={formElement.config.touched}
             changed={event => this.inputChangedHandler(event, formElement.id)}
@@ -97,6 +99,20 @@ class userform extends Component {
         <div className={classes.Input}>
           {form}
         </div>
+        <div className={classes.ButtonContainer}>
+            <Button 
+            title="Sign in >" 
+            className={classes.Button}
+            disabled={!this.state.formIsValid} />
+          </div>
+          <div className={classes.TextContainer}>
+            <NavLink className={classes.ForgotPassword} to="forgotpassword">
+              Forgot Password?
+            </NavLink>
+            <NavLink className={classes.CreateAnAccount} to="signup">
+              Create an account
+            </NavLink>
+          </div>
       </div>
     );
   }
