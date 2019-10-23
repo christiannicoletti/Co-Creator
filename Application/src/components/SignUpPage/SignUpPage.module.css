@@ -41,32 +41,3 @@
 .Form {
   justify-content: center;
 }
-
-.Button {
-  top: 15px;
-  padding: 0px 0px;
-  font-size: 21px;
-  height: 30px;
-  width: 240px;
-  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3);
-  margin: 0 auto;
-}
-
-.Agreement {
-  top: 5px;
-  font-size: 10px;
-  color: white;
-}
-
-.AlreadyHaveAccount {
-  top: 25px;
-  font-size: 10px;
-  color: white;
-  justify-content: center;
-}
-
-.SignIn {
-  top: 30px;
-  font-size: 10px;
-  justify-content: center;
-}
