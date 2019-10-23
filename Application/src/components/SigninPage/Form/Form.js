@@ -102,8 +102,7 @@ class userform extends Component {
         <div className={classes.ButtonContainer}>
             <Button 
             title="Sign in >" 
-            className={classes.Button}
-            disabled={!this.state.formIsValid} />
+            className={classes.Button} />
           </div>
           <div className={classes.TextContainer}>
             <NavLink className={classes.ForgotPassword} to="forgotpassword">
