@@ -1,6 +1,9 @@
 .Input {
+    position: relative;
+    display: flex;
     padding: 10px 0;
-    box-sizing: border-box;
+    justify-items: center;
+    flex-direction: column;
 }
 
 .Label {
@@ -26,4 +29,14 @@
 
 .Invalid {
     border: 1px solid red;
+}
+
+.InvalidMessage {
+    position: relative;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    color: red;
+    left: 15px;
+    width: 240px;
 }

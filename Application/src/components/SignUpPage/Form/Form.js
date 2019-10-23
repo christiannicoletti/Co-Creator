@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
+
+import classes from './Form.module.css';
 
 import Input from '../UI/Input/Input';
 import { checkValidity, updateObject} from '../../../shared/utility';
+import WithClass from '../../../hoc/withClass';
+import Button from '../../shared/UI/Buttons/Buttons';
+
 
 class userform extends Component {
   state = {
@@ -54,7 +60,9 @@ class userform extends Component {
         value: "",
         validation: {
           required: true,
-          minLength: 5
+          minLength: 6,
+          maxLength: 16,
+          oneSymbolRequire: true
         },
         valid: false,
         touched: false
@@ -65,6 +73,7 @@ class userform extends Component {
   };
 
   inputChangedHandler = (event, inputIdentifier) => {
+    // Updating form for each input letter from user
     const updatedFormElement = updateObject(
       this.state.userForm[inputIdentifier],
       {
@@ -76,20 +85,24 @@ class userform extends Component {
         touched: true
       }
     );
-
+    
+    // Updating userForm
     const updatedUserForm = updateObject(this.state.userForm, {
       [inputIdentifier]: updatedFormElement
     });
 
+    // Checking if all of form is valid
     let formIsValid = true;
     for (let inputIdentifier in updatedUserForm) {
-      formIsValid = updatedUserForm[inputIdentifier].valid && formIsValid;
+      formIsValid = updatedUserForm[inputIdentifier].valid[0] && formIsValid;
     }
 
+    // Setting new state
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
   render() {
+    // Making sure every element mapped has a key
     const formElementsArray = [];
     for (let key in this.state.userForm) {
       formElementsArray.push({
@@ -99,21 +112,38 @@ class userform extends Component {
     }
 
     let form = (
-      <form>
-        {formElementsArray.map(formElement => (
-          <Input
-            key={formElement.id}
-            elementType={formElement.config.elementType}
-            elementConfig={formElement.config.elementConfig}
-            value={formElement.config.value}
-            invalid={!formElement.config.valid}
-            shouldValidate={formElement.config.validation}
-            touched={formElement.config.touched}
-            changed={event => this.inputChangedHandler(event, formElement.id)}
-          />
-        ))}
-      </form>
+      <WithClass>
+        <div className={classes.Container}>
+          <form className={classes.Form}>
+            {formElementsArray.map(formElement => (
+              <Input
+                key={formElement.id}
+                elementType={formElement.config.elementType}
+                elementConfig={formElement.config.elementConfig}
+                value={formElement.config.value}
+                invalid={!formElement.config.valid[0]}
+                invalidMessage={formElement.config.valid[1]}
+                shouldValidate={formElement.config.validation}
+                touched={formElement.config.touched}
+                changed={event => this.inputChangedHandler(event, formElement.id)}
+              />
+            ))}
+          </form>
+          <div className={classes.Agreement}>
+            By clicking Create Account, you agree to our <NavLink to="Terms">Terms of Use</NavLink>, and <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
+          </div>
+          <Button 
+          title="Create Account >" 
+          className={classes.Button}
+          disabled={!this.state.formIsValid}/>
+          <div className={classes.AlreadyHaveAccount}>
+            Already have an account?
+          </div>
+          <NavLink className={classes.SignIn} to="signin">Sign in</NavLink>
+        </div>
+      </WithClass>
     );
+
     return (
       <div className={this.props.className}>
         {form}

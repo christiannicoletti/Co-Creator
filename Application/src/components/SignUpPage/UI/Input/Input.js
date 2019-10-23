@@ -4,10 +4,24 @@ import classes from './Input.module.css';
 
 const input = (props) => {
     let inputElement = null;
+    let invalidMessage = [];
+    const invalidMessages = [
+        "Password must be more than 6 characters long",
+        "Password must be less than 16 characters long",
+        "Password must contain a symbol"
+    ]
     const inputClasses = [classes.InputElement];
 
     if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid)
+    }
+
+    if (props.invalidMessage) {
+        for (let indexMessage in props.invalidMessage) {
+            if (props.invalidMessage[indexMessage] === false) {
+                invalidMessage.push(<li key={indexMessage}>{invalidMessages[indexMessage]}</li>)
+            }
+        }
     }
 
     switch (props.elementType) {
@@ -49,6 +63,9 @@ const input = (props) => {
         <div className={classes.Input}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
+            <div className={classes.InvalidMessage}>
+                {invalidMessage}
+            </div>
         </div>
     );
 };
