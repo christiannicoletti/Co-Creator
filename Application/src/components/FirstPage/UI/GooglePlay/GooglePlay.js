@@ -9,7 +9,7 @@ import classes from "./GooglePlay.module.css";
  * Takes local css module and overwrites it with what is passed into googleplay
  */
 const googleplay = (props) => (
-  <img src={Image} className={`${props.className} ${classes.Asset}`}/>
+  <img src={Image} alt='google play logo' className={`${props.className} ${classes.Asset}`}/>
 );
 
 export default googleplay;

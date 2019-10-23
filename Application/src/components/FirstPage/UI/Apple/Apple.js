@@ -9,7 +9,7 @@ import classes from "./Apple.module.css";
  * Takes local css module and overwrites it with what is passed into apple
  */
 const apple = (props) => (
-  <img src={Image} className={`${props.className} ${classes.Asset}`}/>
+  <img src={Image} alt='apple logo' className={`${props.className} ${classes.Asset}`}/>
 );
 
 export default apple;
