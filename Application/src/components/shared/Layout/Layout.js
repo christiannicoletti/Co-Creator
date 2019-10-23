@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import WithClass from "../../../hoc/withClass";
-import StartPageToolbar from "../Navigation/Toolbar/Toolbar";
-import StartPageFootbar from "../Navigation/Footbar/Footbar";
+import Toolbar from "../Navigation/Toolbar/Toolbar";
+import SubToolbar from "../Navigation/SubToolbar/SubToolbar";
 
 /**
  * Contains the background, top, and bottom nav
@@ -13,8 +13,8 @@ class Layout extends Component {
   render() {
     return (
       <WithClass>
-        <StartPageToolbar />
-        <StartPageFootbar />
+        <Toolbar />
+        <SubToolbar />
       </WithClass>
     );
   }
