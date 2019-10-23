@@ -4,8 +4,11 @@
 
 .NavigationItem {
     display: block;     /* Used for ridding the bullet point */
-    border-width: 1px;
-    border-color: white;
+    border-bottom-width: 1px;
+    border-bottom-color: white;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
     border-style: solid;
     border-radius: 5px;
     padding: 5px 15px;

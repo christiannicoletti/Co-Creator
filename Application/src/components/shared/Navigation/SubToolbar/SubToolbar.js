@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NavigationItems from './NavigationItems/NavigationItems';
-import classes from './Footbar.module.css';
+import classes from './SubToolbar.module.css';
 
 const footbar = () => (
     <header className={classes.Main}>
