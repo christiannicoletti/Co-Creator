@@ -1,5 +1,9 @@
 .Input {
+    position: relative;
+    display: flex;
     padding: 10px 0;
+    justify-content: center;
+    top: -40px;
 }
 
 .InputElement {
@@ -13,6 +17,7 @@
     border-color: white;
     background-color: rgb(255, 255, 255, 0.9);
     color: rgb(100, 100, 100);
+    justify-content: center;
 }
 
 .InputElement:focus {
