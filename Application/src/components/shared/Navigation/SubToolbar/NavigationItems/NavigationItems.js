@@ -6,22 +6,22 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 const navigationItems = () => {
   return (
     <ul className={classes.NavigationItems}>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/explore" exact>
         Explore
       </NavigationItem>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/projects" exact>
         Projects
       </NavigationItem>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/startups" exact>
         Startups
       </NavigationItem>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/about" exact>
         About
       </NavigationItem>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/contact" exact>
         Contact
       </NavigationItem>
-      <NavigationItem link="/" exact>
+      <NavigationItem link="/help" exact>
         Help
       </NavigationItem>
     </ul>
