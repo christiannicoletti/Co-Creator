@@ -36,7 +36,8 @@ class userform extends Component {
           minLength: 6
         },
         valid: false,
-        touched: false
+        touched: false,
+        clicked: false
       }
     },
     formIsValid: false,
@@ -68,6 +69,12 @@ class userform extends Component {
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
+  signinClickedValidationHandler = (form) => {
+    if (!form) {
+      this.setState({ clicked: true });
+    }
+  }
+
   render() {
     const formElementsArray = [];
     for (let key in this.state.userForm) {
@@ -86,6 +93,8 @@ class userform extends Component {
             elementConfig={formElement.config.elementConfig}
             value={formElement.config.value}
             invalid={!formElement.config.valid[0]}
+            invalidMessage={formElement.config.valid[1]}
+            invalidForm={!this.state.formIsValid && this.state.clicked}
             shouldValidate={formElement.config.validation}
             touched={formElement.config.touched}
             changed={event => this.inputChangedHandler(event, formElement.id)}
@@ -93,6 +102,7 @@ class userform extends Component {
         ))}
       </form>
     );
+
     return (
       <div className={this.props.className}>
         <Logo className={classes.Logo} />
@@ -102,7 +112,8 @@ class userform extends Component {
         <div className={classes.ButtonContainer}>
             <Button 
             title="Sign in >" 
-            className={classes.Button} />
+            className={classes.Button}
+            clicked={() => this.signinClickedValidationHandler(this.state.formIsValid)} />
           </div>
           <div className={classes.TextContainer}>
             <NavLink className={classes.ForgotPassword} to="forgotpassword">

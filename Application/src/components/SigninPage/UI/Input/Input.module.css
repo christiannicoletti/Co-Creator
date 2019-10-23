@@ -1,25 +1,18 @@
-.Button,
-.ButtonContainer,
-.TextContainer {
-  position: relative;
-}
-
-.ButtonContainer,
-.TextContainer {
-  display: flex;
-}
-
 .Input {
   position: relative;
   display: flex;
-  padding: 10px 0;
-  justify-content: center;
   top: -40px;
+  padding: 10px 0;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.Label {
+  display: block;
 }
 
 .InputElement {
   position: relative;
-  display: flex;
   text-indent: 10px;
   height: 28px;
   width: 250px;
@@ -28,7 +21,6 @@
   border-color: white;
   background-color: rgb(255, 255, 255, 0.9);
   color: rgb(100, 100, 100);
-  justify-content: center;
 }
 
 .InputElement:focus {
@@ -38,4 +30,14 @@
 
 .Invalid {
   border: 1px solid red;
+}
+
+.InvalidMessage {
+  position: relative;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  color: red;
+  left: 35px;
+  width: 240px;
 }

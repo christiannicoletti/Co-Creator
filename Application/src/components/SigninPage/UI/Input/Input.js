@@ -4,10 +4,24 @@ import classes from './Input.module.css';
 
 const input = (props) => {
     let inputElement = null;
+    let invalidMessage = [];
+    const invalidMessages = [
+        "Invalid password length",
+    ]
     const inputClasses = [classes.InputElement];
 
     if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid)
+    }
+
+    if (props.invalidForm) {
+        if (props.invalidMessage) {
+            for (let indexMessage in props.invalidMessage) {
+                if (props.invalidMessage[indexMessage] === false) {
+                    invalidMessage.push(<div key={indexMessage}>{invalidMessages[indexMessage]}</div>)
+                }
+            }
+        }
     }
 
     switch (props.elementType) {
@@ -49,6 +63,9 @@ const input = (props) => {
         <div className={classes.Input}>
             <label>{props.label}</label>
             {inputElement}
+            <div className={classes.InvalidMessage}>
+                {invalidMessage}
+            </div>
         </div>
     );
 };
