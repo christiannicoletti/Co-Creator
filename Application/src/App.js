@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import StartPage from "./components/FirstPage/FirstPage";
 import SignupPage from "./components/SignupPage/SignupPage";
 import SigninPage from "./components/SigninPage/SigninPage";
+import HowToStartPage from "./components/HowToStartPage/HowToStartPage";
 import ProjectsPage from "./components/ProjectsPage/ProjectsPage";
 import WithClass from "./hoc/withClass";
 
@@ -20,6 +21,7 @@ class App extends Component {
           <Route path="/" exact component={StartPage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/signin" exact component={SigninPage} />
+          <Route path="/howtostart" exact component={HowToStartPage} />
           <Route path="/projects" exact component={ProjectsPage} />
           <Redirect to="/" /> {/* Redirect anything other than routes specified to "/" */}
         </Switch>
