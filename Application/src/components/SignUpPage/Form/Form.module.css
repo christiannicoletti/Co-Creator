@@ -1,0 +1,46 @@
+.Agreement,
+.Button,
+.AlreadyHaveAccount,
+.SignIn,
+.Container,
+.Form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.Container {
+  width: 100%;
+  flex-direction: column;
+}
+
+.Form {
+  flex-direction: column;
+}
+
+.Agreement {
+  top: 5px;
+  font-size: 10px;
+  color: white;
+}
+
+.Button {
+  top: 15px;
+  padding: 2px 0px;
+  font-size: 21px;
+  height: 30px;
+  width: 240px;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3);
+}
+
+.AlreadyHaveAccount {
+  top: 25px;
+  font-size: 10px;
+  color: white;
+}
+
+.SignIn {
+  top: 30px;
+  font-size: 10px;
+}
