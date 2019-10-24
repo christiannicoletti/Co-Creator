@@ -1,7 +1,45 @@
+.PageContainer,
+.Row1Content,
+.QuicklyBrowseAssets,
+.FindProjects1,
+.FindProjects2,
+.FilterAssets,
+.Filter1,
+.Filter2,
+.Row2Content,
+.CreateProfileAssets,
+.CreateProfile1,
+.CreateProfile2,
+.CreateProjectAssets,
+.CreateProject1,
+.CreateProject2,
+.Row3Content,
+.CommendmentsAssets,
+.Commendments1,
+.Commendments2,
+.Row4Content,
+.PromoteAssets,
+.Promote1,
+.Promote2 {
+    position: relative;
+}
+
+.PageContainer,
+.AllRows,
+.Row1Content,
+.QuicklyBrowseAssets,
+.FilterAssets,
+.Row2Content,
+.CreateProfileAssets,
+.CreateProjectAssets,
+.CommendmentsAssets,
+.PromoteAssets {
+    display: flex;
+}
+
+
 .PageContainer {
     top: 125px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: column;
     color: white;
@@ -14,14 +52,11 @@
 }
 
 .AllRows {
-    display: flex;
     flex-direction: column;
 }
 
 .Row1Content {
     top: 60px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
 }
@@ -50,14 +85,11 @@
 
 .QuicklyBrowseAssets {
     top: 30px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
 }
 
 .FindProjects1 {
-    position: relative;
     height: 125px;
     width: 275px;
     border: 1px solid white;
@@ -65,7 +97,6 @@
 }
 
 .FindProjects2 {
-    position: relative;
     height: 125px;
     width: 275px;
     margin: 0 20px;
@@ -74,14 +105,11 @@
 
 .FilterAssets {
     top: 30px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
 }
 
 .Filter1 {
-    position: relative;
     height: 125px;
     width: 275px;
     border: 1px solid white;
@@ -89,7 +117,6 @@
 }
 
 .Filter2 {
-    position: relative;
     height: 125px;
     width: 275px;
     margin: 0 20px;
@@ -98,8 +125,6 @@
 
 .Row2Content {
     top: 250px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
 }
@@ -128,14 +153,11 @@
 
 .CreateProfileAssets {
     top: 30px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
 }
 
 .CreateProfile1 {
-    position: relative;
     height: 125px;
     width: 275px;
     border: 1px solid white;
@@ -143,7 +165,6 @@
 }
 
 .CreateProfile2 {
-    position: relative;
     height: 125px;
     width: 275px;
     margin: 0 20px;
@@ -152,14 +173,11 @@
 
 .CreateProjectAssets {
     top: 30px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
 }
 
 .CreateProject1 {
-    position: relative;
     height: 125px;
     width: 275px;
     border: 1px solid white;
@@ -167,7 +185,6 @@
 }
 
 .CreateProject2 {
-    position: relative;
     height: 125px;
     width: 275px;
     margin: 0 20px;
@@ -176,7 +193,6 @@
 
 .Row3Content {
     top: 500px;
-    position: relative;
     text-align: center;
 }
 
@@ -194,14 +210,11 @@
 
 .CommendmentsAssets {
     top: 30px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
 }
 
 .Commendments1 {
-    position: relative;
     height: 125px;
     width: 275px;
     border: 1px solid white;
@@ -209,7 +222,6 @@
 }
 
 .Commendments2 {
-    position: relative;
     height: 125px;
     width: 275px;
     margin: 0 20px;
@@ -218,7 +230,6 @@
 
 .Row4Content {
     top: 750px;
-    position: relative;
     text-align: center;
 }
 
@@ -236,15 +247,12 @@
 
 .PromoteAssets {
     top: 30px;
-    position: relative;
-    display: flex;
     justify-content: center;
     flex-direction: row;
     margin: 0 0 300px;
 }
 
 .Promote1 {
-    position: relative;
     height: 125px;
     width: 275px;
     border: 1px solid white;
@@ -252,7 +260,6 @@
 }
 
 .Promote2 {
-    position: relative;
     height: 125px;
     width: 275px;
     margin: 0 20px;
