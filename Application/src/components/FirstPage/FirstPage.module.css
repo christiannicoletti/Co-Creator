@@ -85,6 +85,7 @@
 
 .Apple,
 .GooglePlay {
+  height: 55px;
   top: 50px;
   margin: 0 20px;
 }

@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 import classes from "./FirstPage.module.css";
 
 import WithClass from "../../hoc/withClass";
-import Layout from "../shared/Layout/Layout";
-import SideImage from "./UI/SideImage/SideImage";
-import Logo from "../shared/Logo/Logo";
-import Button from "../shared/UI/Buttons/Buttons";
-import Apple from "./UI/Apple/Apple";
-import GooglePlay from "./UI/GooglePlay/GooglePlay";
 import Background from "../shared/Background/Background";
+import Layout from "../shared/Layout/Layout";
+import Logo from "../shared/Logo/Logo";
+import SideImage from "./UI/SideImage/SideImage";
+import Button from "../shared/UI/Buttons/Buttons";
+import AppleImage from "../../assets/images/FirstPage/apple.ico";
+import GoogleImage from "../../assets/images/FirstPage/googleplay.ico";
 
 /**
  * First Default landing page
@@ -48,10 +48,10 @@ class ui extends Component {
           <div className={classes.GetApp}>Get the app</div>
           <div className={classes.IconContainer}>
             <NavLink to="Apple">
-              <Apple className={classes.Apple} />
+              <img src={AppleImage} alt='apple logo' className={classes.Apple}/>
             </NavLink>
             <NavLink to="GooglePlay">
-              <GooglePlay className={classes.GooglePlay} />
+              <img src={GoogleImage} alt='google play logo' className={classes.GooglePlay}/>
             </NavLink>
           </div>
         </div>
