@@ -1,0 +1,62 @@
+.MainContainer {
+  top: 125px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+.ProjectsStartupsContainer {
+  font-size: 35px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.Projects {
+  position: relative;
+  margin: 0 20px;
+}
+
+.Startups {
+  position: relative;
+  margin: 0 20px;
+  color: grey;
+  text-decoration: none;
+}
+
+.ViewsContainer {
+  top: 25px;
+  font-size: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.Cardview {
+  position: relative;
+  margin: 0 5px;
+}
+
+.Listview {
+  position: relative;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.CardViewLine {
+  position: relative;
+  top: 4px;
+  left: -2px;
+  width: 70px;
+  border-bottom: 1px solid white;
+}
+
+.ListViewLine {
+  position: relative;
+  top: 4px;
+  left: -2px;
+  width: 60px;
+  border-bottom: 1px solid white;
+}
