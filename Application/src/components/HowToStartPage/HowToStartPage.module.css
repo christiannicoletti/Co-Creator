@@ -1,0 +1,260 @@
+.PageContainer {
+    top: 125px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.GettingStarted {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.AllRows {
+    display: flex;
+    flex-direction: column;
+}
+
+.Row1Content {
+    top: 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.QuicklyBrowse, 
+.Filter {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.QuicklyBrowseContent, 
+.FilterContent {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.QuicklyBrowse {
+    margin: 0 100px;
+}
+
+.Filter {
+    margin: 0 100px;
+}
+
+.QuicklyBrowseAssets {
+    top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.FindProjects1 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    border: 1px solid white;
+    margin: 0 20px;
+}
+
+.FindProjects2 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    margin: 0 20px;
+    border: 1px solid white;
+}
+
+.FilterAssets {
+    top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.Filter1 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    border: 1px solid white;
+    margin: 0 20px;
+}
+
+.Filter2 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    margin: 0 20px;
+    border: 1px solid white;
+}
+
+.Row2Content {
+    top: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.CreateProfile, 
+.CreateProject {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.CreateProfileContent, 
+.CreateProjectContent {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.CreateProfile {
+    margin: 0 100px;
+}
+
+.CreateProject {
+    margin: 0 100px;
+}
+
+.CreateProfileAssets {
+    top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.CreateProfile1 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    border: 1px solid white;
+    margin: 0 20px;
+}
+
+.CreateProfile2 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    margin: 0 20px;
+    border: 1px solid white;
+}
+
+.CreateProjectAssets {
+    top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.CreateProject1 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    border: 1px solid white;
+    margin: 0 20px;
+}
+
+.CreateProject2 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    margin: 0 20px;
+    border: 1px solid white;
+}
+
+.Row3Content {
+    top: 500px;
+    position: relative;
+    text-align: center;
+}
+
+.Commendments {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.CommendmentsContent {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.CommendmentsAssets {
+    top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.Commendments1 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    border: 1px solid white;
+    margin: 0 20px;
+}
+
+.Commendments2 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    margin: 0 20px;
+    border: 1px solid white;
+}
+
+.Row4Content {
+    top: 750px;
+    position: relative;
+    text-align: center;
+}
+
+.Promote {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.PromoteContent {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.PromoteAssets {
+    top: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0 0 300px;
+}
+
+.Promote1 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    border: 1px solid white;
+    margin: 0 20px;
+}
+
+.Promote2 {
+    position: relative;
+    height: 125px;
+    width: 275px;
+    margin: 0 20px;
+    border: 1px solid white;
+}
