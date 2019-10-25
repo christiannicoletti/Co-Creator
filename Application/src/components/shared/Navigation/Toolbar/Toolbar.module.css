@@ -1,13 +1,24 @@
 .Main {
     position: relative;
     display: flex;
-    top: 60px;
+    top: 20px;
     width: 100vw;
-    height: 50px;
     justify-content: center;
     align-items: center;
 }
 
 .Logo {
+    position: relative;
+    right: 40px;
     height: 130px;
+}
+
+.Container1 {
+    position: relative;
+    right: 40px;
+}
+
+.Container2 {
+    position: relative;
+    left: 40px;
 }

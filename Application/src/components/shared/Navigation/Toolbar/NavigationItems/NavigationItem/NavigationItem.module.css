@@ -4,6 +4,8 @@
 
 .NavigationItem {
     display: block;
+    text-decoration: none;
+    color: white;
 }
 
 .NavigationItem a {

@@ -5,7 +5,7 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 
 const navigationItems = () => {
   return (
-    <ul className={classes.NavigationItems}>
+    <div className={classes.NavigationItems}>
       <NavigationItem link="/explore" exact>
         Explore
       </NavigationItem>
@@ -24,7 +24,7 @@ const navigationItems = () => {
       <NavigationItem link="/help" exact>
         Help
       </NavigationItem>
-    </ul>
+    </div>
   );
 };
 

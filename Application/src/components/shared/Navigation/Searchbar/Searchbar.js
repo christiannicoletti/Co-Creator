@@ -2,10 +2,10 @@ import React from "react";
 
 import classes from "./Searchbar.module.css";
 
-const searchbar = () => (
+const searchbar = (props) => (
   <input
     type="search"
-    className={classes.Searchbar}
+    className={`${classes.Searchbar} ${props.className}`}
     placeholder="Search for a project or user..."
   ></input>
 );

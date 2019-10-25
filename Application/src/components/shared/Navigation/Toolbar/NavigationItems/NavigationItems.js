@@ -5,7 +5,7 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 
 const navigationItems = props => {
   return (
-    <ul className={classes.NavigationItems}>
+    <div className={`${classes.NavigationItems} ${props.className}`}>
       <NavigationItem link="/howtostart" exact>
         <strong>How to start</strong>
       </NavigationItem>
@@ -15,7 +15,7 @@ const navigationItems = props => {
       <NavigationItem link="/signin" exact>
         Sign in
       </NavigationItem>
-    </ul>
+    </div>
   );
 };
 

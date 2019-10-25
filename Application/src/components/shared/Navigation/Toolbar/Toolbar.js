@@ -9,8 +9,8 @@ import classes from './Toolbar.module.css';
 const toolbar = () => (
     <header className={classes.Main}>
         <NavLink to="/"><Logo className={classes.Logo} /></NavLink>
-        <Searchbar />
-        <NavigationItems />
+        <Searchbar className={classes.Container1}/>
+        <NavigationItems className={classes.Container2} />
     </header>
 );
  
