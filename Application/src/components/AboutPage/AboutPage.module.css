@@ -1,0 +1,162 @@
+.AllRows,
+.PageContainer,
+.Row1Content,
+.DesignedEasy,
+.DesignedEasyContent,
+.DesignedEasyAsset,
+.Row2Content,
+.CreateProfile,
+.CreateProfileContent,
+.CreateProfileAssets,
+.Row3Content,
+.HandsOnExperience,
+.HandsOnExperienceContent,
+.HandsOnExperienceAsset,
+.Row4Content,
+.PitchIdea,
+.PitchIdeaContent,
+.PitchIdeaAsset,
+.Row5Content {
+  position: relative;
+}
+
+.PageContainer,
+.AllRows,
+.Row1Content,
+.DesignedEasyAsset,
+.Row2Content,
+.CreateProfileAssets,
+.Row3Content,
+.HandsOnExperienceAsset,
+.Row4Content,
+.PitchIdeaAsset {
+  display: flex;
+}
+
+.TitleContainer {
+  top: 75px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Logo {
+  display: flex;
+  height: 62px;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.Slogan {
+  position: relative;
+  top: 25px;
+  font-size: 25px;
+  margin: 0 auto;
+  color: white;
+  font-family: "Economica", sans-serif;
+}
+
+.AllRows {
+  top: 120px;
+  flex-direction: column;
+  color: white;
+}
+
+.Row1Content {
+  top: 60px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.DesignedEasy {
+  height: 300px;
+  right: 60px;
+}
+
+.DesignedEasyContent {
+  top: 30px;
+  left: 60px;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.DesignedEasyAsset {
+  top: 30px;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.Row3Content {
+  top: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.HandsOnExperience {
+  height: 300px;
+  left: 30px;
+}
+
+.HandsOnExperienceContent {
+  top: 30px;
+  right: 30px;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.HandsOnExperienceAsset {
+  top: 30px;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.Row4Content {
+  top: 550px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.PitchIdea {
+  height: 300px;
+  right: 60px;
+}
+
+.PitchIdeaContent {
+  top: 30px;
+  left: 60px;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.PitchIdeaAsset {
+  top: 30px;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.Slogan2 {
+  position: relative;
+  top: -25px;
+  font-size: 26px;
+  margin: 0 auto;
+  color: white;
+  font-family: "Economica", sans-serif;
+}
+
+.Row5Content {
+  top: 800px;
+  text-align: center;
+}
+
+.Logo2 {
+  display: flex;
+  height: 50px;
+  width: 400px;
+  margin: 0 auto 290px;
+}
