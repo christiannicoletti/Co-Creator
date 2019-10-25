@@ -1,47 +1,68 @@
 .MainContainer {
-  top: 125px;
+  top: 65px;
   position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   color: white;
 }
 
 .ProjectsStartupsContainer {
   font-size: 35px;
-  position: relative;
   display: flex;
   justify-content: center;
 }
 
 .Projects {
   position: relative;
-  margin: 0 20px;
+  right: 20px;
 }
 
 .Startups {
+  left: 20px;
   position: relative;
-  margin: 0 20px;
   color: grey;
   text-decoration: none;
 }
 
-.ViewsContainer {
+.SecondRowContainer {
   top: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.Filter {
+  position: relative;
+  right: 200px;
+}
+
+.ViewsContainer {
+  left: 55px;
   font-size: 15px;
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.Cardview {
+.Cardview,
+.CardviewNotClicked {
   position: relative;
-  margin: 0 5px;
+  margin: 0 10px;
+  width: 70px;
 }
 
-.Listview {
+.CardviewNotClicked {
+  cursor: pointer;
+}
+
+
+.Listview,
+.ListviewNotClicked {
   position: relative;
-  margin: 0 5px;
+  margin: 0 10px;
+  width: 70px;
+}
+
+.ListviewNotClicked {
   cursor: pointer;
 }
 
@@ -59,4 +80,9 @@
   left: -2px;
   width: 60px;
   border-bottom: 1px solid white;
+}
+
+.RankedBy {
+  position: relative;
+  left: 200px;
 }

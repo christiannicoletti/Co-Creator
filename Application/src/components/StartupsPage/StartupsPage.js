@@ -23,17 +23,22 @@ class ui extends Component {
   }
 
   render() {
-    let cardviewline = null;
+    let toggle = null;
     if (this.state.isCardView) {
-      cardviewline = (
-        <div className={classes.CardViewLine}/>
+      toggle = (
+        <div className={classes.ViewsContainer}>
+          <div className={classes.Cardview}>Card view<div className={classes.CardViewLine}/></div>
+          <div onClick={this.switchViewHandler} className={classes.ListviewNotClicked}>List view</div>
+        </div>
       )
     }
 
-    let listviewline = null;
     if (this.state.isListView) {
-      listviewline = (
-        <div className={classes.ListViewLine}/>
+      toggle = (
+        <div className={classes.ViewsContainer}>
+          <div onClick={this.switchViewHandler} className={classes.CardviewNotClicked}>Card view</div>
+          <div className={classes.Listview}>List view<div className={classes.ListViewLine}/></div>
+        </div>
       )
     }
 
@@ -45,13 +50,12 @@ class ui extends Component {
           <div className={classes.ProjectsStartupsContainer}>
             <NavLink to="projects" className={classes.Projects}>Projects</NavLink> | <div className={classes.Startups}>Startups</div>
           </div>
-          {/* Insert Filter */}
-          <div className={classes.ViewsContainer}>
-            <div onClick={this.switchViewHandler} className={classes.Cardview}>Card view{cardviewline}</div><div onClick={this.switchViewHandler} className={classes.Listview}>List view{listviewline}</div>
+          <div className={classes.SecondRowContainer}>
+            <div className={classes.Filter}>Filter</div>
+            {toggle}
+            <div className={classes.RankedBy}>Ranked by: Featured</div>
           </div>
-          {/* Insert Ranked by: */}
-          <div className={classes.ProjectsContainer}>
-            {/* Insert list of projects */}
+          <div className={classes.CardViewContainer}>
           </div>
         </div>
       </WithClass>

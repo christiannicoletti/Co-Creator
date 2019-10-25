@@ -19,21 +19,24 @@ class ui extends Component {
   }
 
   switchViewHandler = () => {
-    return this.setState({ isCardView: !this.state.isCardView, isListView: !this.state.isListView });
+    this.setState({ isCardView: !this.state.isCardView, isListView: !this.state.isListView });
   }
 
   render() {
-    let cardviewline = null;
+    let toggle = null;
     if (this.state.isCardView) {
-      cardviewline = (
-        <div className={classes.CardViewLine}/>
+      toggle = (
+        <div className={classes.ViewsContainer}>
+          <div className={classes.Cardview}>Card view<div className={classes.CardViewLine}/></div>
+          <div onClick={this.switchViewHandler} className={classes.ListviewNotClicked}>List view<div/></div>
+        </div>
       )
-    }
-
-    let listviewline = null;
-    if (this.state.isListView) {
-      listviewline = (
-        <div className={classes.ListViewLine}/>
+    } else {
+      toggle = (
+        <div className={classes.ViewsContainer}>
+          <div onClick={this.switchViewHandler} className={classes.CardviewNotClicked}>Card view<div/></div>
+          <div className={classes.Listview}>List view<div className={classes.ListViewLine}/></div>
+        </div>
       )
     }
 
@@ -43,13 +46,13 @@ class ui extends Component {
         <Layout />
         <div className={classes.MainContainer}>
           <div className={classes.ProjectsStartupsContainer}>
-            <div className={classes.Projects}>Projects</div>|<NavLink to="startups" className={classes.Startups}>Startups</NavLink>
+            <div className={classes.Projects}>Projects</div> | <NavLink to="startups" className={classes.Startups}>Startups</NavLink>
           </div>
-          {/* Insert Filter */}
-          <div className={classes.ViewsContainer}>
-            <div onClick={this.switchViewHandler} className={classes.Cardview}>Card view{cardviewline}</div><div onClick={this.switchViewHandler} className={classes.Listview}>List view{listviewline}</div>
+          <div className={classes.SecondRowContainer}>
+            <div className={classes.Filter}>Filter</div>
+            {toggle}
+            <div className={classes.RankedBy}>Ranked by: Featured</div>
           </div>
-          {/* Insert Ranked by: */}
           <div className={classes.CardViewContainer}>
           </div>
         </div>
