@@ -22,21 +22,22 @@
 
 .MainContainer {
   width: 100vw;
-  top: 60px;
+  top: 90px;
   justify-content: center;
 }
 
 .SideImage {
-  left: 20px;
+  left: 30px;
 }
 
 .UiContainer {
-  left: -20px;
+  left: -30px;
+  top: 90px;
   flex-direction: column;
 }
 
 .Slogan {
-  top: 20px;
+  top: 25px;
   font-size: 30px;
   margin: 0 auto;
   color: white;
@@ -44,14 +45,14 @@
 }
 
 .Button {
-  top: 40px;
+  top: 70px;
   margin: 0 auto;
 }
 
 .Line, .Line2 {
   width: 112px;
   height: 47px;
-  top: 25px;
+  top: 60px;
   border-bottom: 1px solid white;
 }
 
@@ -69,13 +70,13 @@
 
 .OR,
 .GetApp {
-  top: 60px;
+  top: 95px;
   color: white;
   text-align: center;
 }
 
 .GetApp {
-  top: 40px;
+  top: 90px;
 }
 
 .IconContainer {
@@ -86,6 +87,6 @@
 .Apple,
 .GooglePlay {
   height: 55px;
-  top: 50px;
+  top: 120px;
   margin: 0 20px;
 }
