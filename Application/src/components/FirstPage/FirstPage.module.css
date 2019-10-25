@@ -36,7 +36,7 @@
 }
 
 .Slogan {
-  top: -80px;
+  top: 20px;
   font-size: 30px;
   margin: 0 auto;
   color: white;
@@ -44,14 +44,14 @@
 }
 
 .Button {
-  top: -30px;
+  top: 40px;
   margin: 0 auto;
 }
 
 .Line, .Line2 {
   width: 112px;
   height: 47px;
-  top: -15px;
+  top: 25px;
   border-bottom: 1px solid white;
 }
 
@@ -69,13 +69,13 @@
 
 .OR,
 .GetApp {
-  top: 20px;
+  top: 60px;
   color: white;
   text-align: center;
 }
 
 .GetApp {
-  top: 20px;
+  top: 40px;
 }
 
 .IconContainer {
