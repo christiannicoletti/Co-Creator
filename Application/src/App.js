@@ -7,6 +7,7 @@ import SigninPage from "./components/SigninPage/SigninPage";
 import HowToStartPage from "./components/HowToStartPage/HowToStartPage";
 import ProjectsPage from "./components/ProjectsPage/ProjectsPage";
 import StartupsPage from "./components/StartupsPage/StartupsPage";
+import AboutPage from "./components/AboutPage/AboutPage";
 import WithClass from "./hoc/withClass";
 
 /**
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/howtostart" exact component={HowToStartPage} />
           <Route path="/projects" exact component={ProjectsPage} />
           <Route path="/startups" exact component={StartupsPage} />
+          <Route path="/about" exact component={AboutPage} />
           <Redirect to="/" /> {/* Redirect anything other than routes specified to "/" */}
         </Switch>
       </WithClass>
