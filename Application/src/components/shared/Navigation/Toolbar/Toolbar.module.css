@@ -1,24 +1,25 @@
 .Main {
     position: relative;
     display: flex;
-    top: 20px;
-    width: 100vw;
     justify-content: center;
     align-items: center;
+    background-color: #06212D;
 }
 
 .Logo {
     position: relative;
-    right: 40px;
-    height: 130px;
+    right: 110px;
+    height: 25px;
+    width: 175px;
+    padding: 12px 10px 7px;
 }
 
 .Container1 {
     position: relative;
-    right: 40px;
+    right: 120px;
 }
 
 .Container2 {
     position: relative;
-    left: 40px;
+    left: 30px;
 }
