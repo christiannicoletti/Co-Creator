@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
-import Layout from "../shared/Layout/Layout";
+import classes from './ContactPage.module.css';
+
 import WithClass from "../../hoc/withClass";
 import Background from "../shared/Background/Background";
+import Form from './Form/Form';
+import Layout from '../shared/Layout/Layout';
 
 /**
  * Main projects Page
@@ -15,6 +18,9 @@ class ui extends Component {
       <WithClass>
         <Background />
         <Layout />
+        <div className={classes.Container}>
+          <Form className={classes.Form}/>
+        </div>
       </WithClass>
     );
   }

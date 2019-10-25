@@ -1,0 +1,15 @@
+.Container,
+.Form {
+  position: relative;
+}
+
+.Container {
+  top: 70px;
+}
+
+.Form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

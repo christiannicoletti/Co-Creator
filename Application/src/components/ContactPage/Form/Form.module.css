@@ -1,0 +1,36 @@
+.Button,
+.ButtonContainer,
+.ContactUs {
+  position: relative;
+}
+
+.ButtonContainer,
+.ContactUs {
+  display: flex;
+}
+
+.ContactUs {
+  top: -5px;
+  font-size: 25px;
+  color: white;
+  justify-content: center;
+}
+
+.Input {
+  top: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.Button {
+  font-size: 21px;
+  height: 30px;
+  width: 250px;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3);
+}
+
+.ButtonContainer {
+  top: 20px;
+  justify-content: center;
+}
