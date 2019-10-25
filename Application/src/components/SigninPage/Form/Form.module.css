@@ -12,11 +12,12 @@
 .Logo {
   display: flex;
   height: 50px;
-  width: 200px;
+  width: 400px;
   margin: 0 auto;
 }
 
 .Input {
+  top: 60px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -30,14 +31,16 @@
 }
 
 .ButtonContainer {
-  top: -30px;
+  top: 30px;
   justify-content: center;
 }
 
 .ForgotPassword,
 .CreateAnAccount {
+  top: 45px;
   font-size: 13px;
   color: white;
+  position: relative;
   text-decoration: none;
 }
 
