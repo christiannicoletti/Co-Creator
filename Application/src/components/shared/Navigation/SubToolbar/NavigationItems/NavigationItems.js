@@ -21,9 +21,6 @@ const navigationItems = () => {
       <NavigationItem link="/contact" exact>
         Contact
       </NavigationItem>
-      <NavigationItem link="/help" exact>
-        Help
-      </NavigationItem>
     </div>
   );
 };
