@@ -1,5 +1,6 @@
+.TitleContainer,
 .AllRows,
-.PageContainer,
+.Slogan,
 .Row1Content,
 .DesignedEasy,
 .DesignedEasyContent,
@@ -20,7 +21,9 @@
   position: relative;
 }
 
-.PageContainer,
+.TitleContainer,
+.Logo,
+.Logo2,
 .AllRows,
 .Row1Content,
 .DesignedEasyAsset,
@@ -33,22 +36,19 @@
   display: flex;
 }
 
+
 .TitleContainer {
   top: 75px;
-  position: relative;
-  display: flex;
   flex-direction: column;
 }
 
 .Logo {
-  display: flex;
   height: 62px;
   width: 450px;
   margin: 0 auto;
 }
 
 .Slogan {
-  position: relative;
   top: 25px;
   font-size: 25px;
   margin: 0 auto;
@@ -155,7 +155,6 @@
 }
 
 .Logo2 {
-  display: flex;
   height: 50px;
   width: 400px;
   margin: 0 auto 290px;
