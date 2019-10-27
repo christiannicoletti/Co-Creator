@@ -5,7 +5,9 @@ import classes from "./Input.module.css";
 const input = props => {
   let inputElement = null;
   let invalidMessage = [];
-  const invalidMessages = ["Invalid password length"];
+  const invalidMessages = [
+    "Invalid password length"
+  ];
   const inputClasses = [classes.InputElement];
 
   if (props.invalid && props.shouldValidate && props.touched) {

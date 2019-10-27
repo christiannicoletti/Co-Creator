@@ -39,6 +39,19 @@ class userform extends Component {
         touched: false,
         clicked: false
       },
+      title: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Title"
+        },
+        value: "",
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
+      },
       message: {
         elementType: "textarea",
         elementConfig: {
@@ -82,6 +95,12 @@ class userform extends Component {
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
+  signinClickedValidationHandler = (form) => {
+    if (!form) {
+      this.setState({ clicked: true });
+    }
+  }
+
   render() {
     const formElementsArray = [];
     for (let key in this.state.userForm) {
@@ -101,7 +120,7 @@ class userform extends Component {
             value={formElement.config.value}
             invalid={!formElement.config.valid[0]}
             invalidMessage={formElement.config.valid[1]}
-            invalidForm={!this.state.formIsValid && formElement.config.elementConfig.type === 'password'}
+            invalidForm={!this.state.formIsValid && this.state.clicked}
             shouldValidate={formElement.config.validation}
             touched={formElement.config.touched}
             isMessage={formElement.config.elementConfig.placeholder === 'Your message...'}
@@ -120,8 +139,8 @@ class userform extends Component {
         <div className={classes.ButtonContainer}>
             <Button 
             title="Submit Email >" 
-            className={classes.Button}
-            disabled={!this.state.formIsValid} />
+            className={classes.Button} 
+            clicked={() => this.signinClickedValidationHandler(this.state.formIsValid)} />
 
           </div>
       </div>
