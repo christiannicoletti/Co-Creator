@@ -4,7 +4,7 @@ import classes from './ContactPage.module.css';
 
 import WithClass from "../../hoc/withClass";
 import Background from "../shared/Background/Background";
-import Form from './Form/Form';
+import Form from '../../containers/ContactPage/Form/Form';
 import Layout from '../shared/Layout/Layout';
 
 /**
