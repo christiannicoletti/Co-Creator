@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Searchbar from '../Searchbar/Searchbar';
 import NavigationItems from './NavigationItems/NavigationItems';
 import Logo from "../../Logo/Logo";
-import Home from '../../../../assets/images/home_icon.png';
+import Home from '../../../../assets/images/Toolbar/home_icon.png';
 import classes from './Toolbar.module.css';
 
 const toolbar = () => (

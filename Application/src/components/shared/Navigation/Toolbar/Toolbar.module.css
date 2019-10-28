@@ -28,6 +28,7 @@
 }
 
 .Container2 {
+    align-items: center;
     position: relative;
     left: 30px;
 }
