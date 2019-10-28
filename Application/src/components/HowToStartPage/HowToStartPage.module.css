@@ -63,7 +63,7 @@
 
 .QuicklyBrowse, 
 .Filter {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 600;
     text-align: center;
 }
@@ -131,7 +131,7 @@
 
 .CreateProfile, 
 .CreateProject {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 600;
     text-align: center;
 }
@@ -197,7 +197,7 @@
 }
 
 .Commendments {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 600;
     text-align: center;
 }
@@ -234,7 +234,7 @@
 }
 
 .Promote {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 600;
     text-align: center;
 }

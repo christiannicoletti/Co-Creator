@@ -94,7 +94,7 @@ class ui extends Component {
                         <div className={classes.CommendmentsContent}>
                             <div>We aim to provide the experience before work experience</div>
                             <div>Commendments are a way for project owners to know how you've worked on other projects</div>
-                            <div>Once you've finished a project, team members or project owners can commend you for your efforts</div>
+                            <div>Once you've finished a project, team members and project owners can commend you for your efforts</div>
                         </div>
                     <div className={classes.CommendmentsAssets}>
                         <img src={Commendments1} alt='apple logo' className={classes.Commendments1}/>
@@ -110,7 +110,7 @@ class ui extends Component {
                             <div>Want to get your project more exposure to everyone who uses cocreate?</div>
                             <div>or more exposure to your profile for project owners to see?</div>
                             <div>Promote your project or user profile for a monthly fee</div>
-                            <div>Receive a rotating spot on the featured page for all users to see</div>
+                            <div>Receive a rotating spot on the featured page</div>
                         </div>
                     <div className={classes.PromoteAssets}>
                         <img src={Promote1} alt='apple logo' className={classes.Promote1}/>
