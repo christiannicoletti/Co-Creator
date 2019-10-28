@@ -1,13 +1,13 @@
 .NavItemContainer {
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 .NavigationItem {
     display: block;
     text-decoration: none;
     color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
 }
