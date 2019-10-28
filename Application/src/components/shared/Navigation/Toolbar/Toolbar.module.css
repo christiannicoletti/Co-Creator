@@ -8,10 +8,18 @@
 
 .Logo {
     position: relative;
-    right: 110px;
+    right: 130px;
     height: 25px;
     width: 175px;
     padding: 12px 10px 7px;
+}
+
+.Home {
+    right: 60px;
+    position: relative;
+    color: white;
+    height: 20px;
+    text-decoration: none;
 }
 
 .Container1 {
