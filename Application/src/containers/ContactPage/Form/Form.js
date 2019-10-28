@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
 
 import classes from './Form.module.css';
 
-import Logo from '../../shared/Logo/Logo';
-import Input from '../UI/Input/Input';
+import Input from '../../../components/ContactPage/UI/Input/Input';
 import { checkValidity, updateObject} from '../../../shared/utility';
-import Button from "../../shared/UI/Buttons/Buttons";
+import Button from "../../../components/shared/UI/Buttons/Buttons";
 
 class userform extends Component {
   state = {
@@ -92,12 +90,24 @@ class userform extends Component {
       formIsValid = updatedUserForm[inputIdentifier].valid[0] && formIsValid;
     }
 
+    this.checkResetHandler(event.target.value);
+
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
   signinClickedValidationHandler = (form) => {
     if (!form) {
       this.setState({ clicked: true });
+    }
+  }
+
+  checkResetHandler = (value) => {
+    if (value === "") {
+      this.setState({ 
+        valid: false,
+        touched: false,
+        clicked: false 
+      });
     }
   }
 

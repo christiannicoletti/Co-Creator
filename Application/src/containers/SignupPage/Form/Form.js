@@ -29,7 +29,8 @@ class userform extends Component {
         elementType: "input",
         elementConfig: {
           type: "email",
-          placeholder: "Email"
+          type2: "phone",
+          placeholder: "Email or Phone Number"
         },
         value: "",
         validation: {
@@ -101,6 +102,10 @@ class userform extends Component {
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
+  checkPhoneNumberHandler = (input) => {
+    return /^[2-9]\d{2}-\d{3}-\d{4}$/.test(input);
+  }
+
   render() {
     // Making sure every element mapped has a key
     const formElementsArray = [];
@@ -125,12 +130,15 @@ class userform extends Component {
                 invalidMessage={formElement.config.valid[1]}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
+                isPhone={this.checkPhoneNumberHandler(formElement.config.value)}
+                typePhone={formElement.config.elementConfig.type2 === 'phone'}
+                typeEmail={formElement.config.elementConfig.type === 'email'}
                 changed={event => this.inputChangedHandler(event, formElement.id)}
               />
             ))}
           </form>
           <div className={classes.Agreement}>
-            By clicking Create Account, you agree to our <NavLink to="Terms">Terms of Use</NavLink>, and <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
+            By clicking Create Account, you agree to our<NavLink to="Terms">Terms of Use</NavLink>, and <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
           </div>
           <Button 
           title="Create Account >" 

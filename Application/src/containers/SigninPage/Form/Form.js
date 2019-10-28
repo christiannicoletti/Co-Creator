@@ -66,12 +66,24 @@ class userform extends Component {
       formIsValid = updatedUserForm[inputIdentifier].valid[0] && formIsValid;
     }
 
+    this.checkResetHandler(event.target.value);
+
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
   signinClickedValidationHandler = (form) => {
     if (!form) {
       this.setState({ clicked: true });
+    }
+  }
+
+  checkResetHandler = (value) => {
+    if (value === "") {
+      this.setState({ 
+        valid: false,
+        touched: false,
+        clicked: false 
+      });
     }
   }
 
