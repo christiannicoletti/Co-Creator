@@ -5,7 +5,7 @@ import classes from "./SignupPage.module.css";
 import WithClass from "../../hoc/withClass";
 import Background from "../shared/Background/Background";
 import SideImage from './UI/SideImage/SideImage';
-import Form from './Form/Form';
+import Form from '../../containers/SignupPage/Form/Form';
 import Layout from '../shared/Layout/Layout';
 
 /**

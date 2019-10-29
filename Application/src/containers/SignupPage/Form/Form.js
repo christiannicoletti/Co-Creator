@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 import classes from './Form.module.css';
 
-import Input from '../UI/Input/Input';
+import Input from '../../../components/SignupPage/UI/Input/Input';
 import { checkValidity, updateObject} from '../../../shared/utility';
 import WithClass from '../../../hoc/withClass';
-import Button from '../../shared/UI/Buttons/Buttons';
+import Button from '../../../components/shared/UI/Buttons/Buttons';
 
 
 class userform extends Component {

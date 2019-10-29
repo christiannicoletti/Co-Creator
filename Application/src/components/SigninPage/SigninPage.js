@@ -4,7 +4,7 @@ import classes from "./SigninPage.module.css";
 
 import WithClass from "../../hoc/withClass";
 import Background from "../shared/Background/Background";
-import Form from "./Form/Form";
+import Form from "../../containers/SigninPage/Form/Form";
 import Layout from "../shared/Layout/Layout";
 
 /**
