@@ -3,19 +3,66 @@
   white-space: nowrap;
 }
 
+.Hide {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  top: -6px;
+  height: 15px;
+  width: 159px;
+  background-color: #06212D;
+}
+
 .ProfileContainer {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
   border: 1px solid grey;
+  background: #06212D;
   padding: 5px;
-  white-space: nowrap;
   border-radius: 6px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.ProfileContainer:hover {
+  border: 1px solid white;
+}
+
+.ProfileClicked {
+  border: 1px solid grey;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.UserButtonContainer {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.Drawer {
+  position: absolute;
+  top: 36px;
+  z-index: 1;
+  transition: transform 0.15s ease-out;
+}
+
+.Open {
+    transform-origin: top;
+    transform: translateY(0);
+}
+
+.Close {
+    transform-origin:  top;
+    transform: translateY(-110%);
 }
 
 .ProfilePicture {
-  position: relative;
   display: flex;
   margin: 0 auto;
   height: 25px;

@@ -1,0 +1,15 @@
+.NavigationItem {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom: 1px solid grey;
+}
+
+.NavigationItem:hover {
+    border: 1px solid rgb(196, 196, 196);
+    background-color: rgb(81, 144, 172);
+}
