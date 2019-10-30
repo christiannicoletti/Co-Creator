@@ -8,7 +8,7 @@ import WithClass from '../../../../../hoc/withClass';
 
 class navigationItems extends Component {
   render() {
-    let navNotLoggedIn = (
+    let nav = (
       <div className={`${classes.NavigationItems} ${this.props.className}`}>
       <NavigationItem link="/howtostart" exact>
         <strong>How to start</strong>
@@ -21,28 +21,30 @@ class navigationItems extends Component {
       </NavigationItem>
     </div>
     )
-
-    let navLoggedIn = (
-      <div className={`${classes.NavigationItems} ${this.props.className}`}>
-      <NavigationItem link="/howtojoinproject" exact>
-        <strong>Help</strong>
-      </NavigationItem>
-      <NavigationItem link="/createproject" exact>
-        Create a project
-      </NavigationItem>
-      <NavigationItem link="/createproject" exact>
-        <div className={classes.ProfileContainer}>
-          <div className={classes.Username}>Christian Nicoletti</div>
-          <img src={ProfilePicture} className={classes.ProfilePicture} />
-          <img src={DownArrow} alt="Down arrow for collapsing/expanding" className={classes.DownArrow} />
-        </div>
-      </NavigationItem>
-    </div>
-    )
+    
+    if (this.props.isAuthenticated) {
+      nav = (
+        <div className={`${classes.NavigationItems} ${this.props.className}`}>
+        <NavigationItem link="/howtojoinproject" exact>
+          <strong>Help</strong>
+        </NavigationItem>
+        <NavigationItem link="/createproject" exact>
+          Create a project
+        </NavigationItem>
+        <NavigationItem link="/createproject" exact>
+          <div className={classes.ProfileContainer}>
+            <div className={classes.Username}>Christian Nicoletti</div>
+            <img src={ProfilePicture} className={classes.ProfilePicture} />
+            <img src={DownArrow} alt="Down arrow for collapsing/expanding" className={classes.DownArrow} />
+          </div>
+        </NavigationItem>
+      </div>
+      )
+    }
 
     return (
       <WithClass>
-        {navNotLoggedIn}
+        {nav}
       </WithClass>
     );
   }
