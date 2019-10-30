@@ -28,11 +28,13 @@ exports.addUser = functions.auth.user().onCreate(async(user) => {
 
   try {
     let setUser = await db.collection('users').doc(uid).set(data);
+    console.log("Successfully created user!\n");
+    console.log(setUser);
+    console.log("User created at: ", setUser.writeTime);
+    return;
   } catch (error) {
     console.log("Error Storing user in database \n");
     console.log(error);
-    res.status(500).send("Internal Server Error: Could not store user in database");
+    return;
   }
-
-
 })
