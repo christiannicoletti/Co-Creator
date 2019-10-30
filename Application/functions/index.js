@@ -13,14 +13,13 @@ exports.signup = functions.https.onRequest(async (req, res) => {
   */ 
 
   // very basic for now, needs a lot more error handling.
-  const {email, password, name} = req.body;
+  const {fullname, email, password, username} = req.body;
   try {
     const user = await admin.auth().createUser({
+      fullname: fullname,
       email: email,
-      password: password,
-      displayName: name,
-      emailVerified: false,
-      disabled: false
+      username: username,
+      password: password
     })
 
     /* Now generate a custom JWT to send back to the client */
