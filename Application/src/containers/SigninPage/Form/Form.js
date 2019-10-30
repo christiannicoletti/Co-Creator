@@ -14,12 +14,13 @@ class userform extends Component {
       email: {
         elementType: "input",
         elementConfig: {
-          type: "email",
+          type: "text",
           placeholder: "Email or Phone Number"
         },
         value: "",
         validation: {
-          required: true
+          required: true,
+          isPhoneAndEmail: true
         },
         valid: false,
         touched: false
@@ -121,12 +122,10 @@ class userform extends Component {
         <div className={classes.Input}>
           {form}
         </div>
-        <div className={classes.ButtonContainer}>
-            <Button 
-            title="Sign in >" 
-            className={classes.Button}
-            clicked={() => this.signinClickedValidationHandler(this.state.formIsValid)} />
-          </div>
+          <Button 
+          title="Sign in >" 
+          className={classes.Button}
+          clicked={() => this.signinClickedValidationHandler(this.state.formIsValid)} />
           <div className={classes.TextContainer}>
             <NavLink className={classes.ForgotPassword} to="forgotpassword">
               Forgot Password?

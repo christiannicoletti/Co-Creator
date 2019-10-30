@@ -1,10 +1,9 @@
 .Button,
-.ButtonContainer,
 .TextContainer {
   position: relative;
 }
 
-.ButtonContainer,
+.Button,
 .TextContainer {
   display: flex;
 }
@@ -24,20 +23,19 @@
 }
 
 .Button {
+  top: 30px;
+  margin: 0 auto;
+  justify-content: center;
   font-size: 21px;
   height: 30px;
   width: 250px;
   box-shadow: 0 3px 6px rgb(0, 0, 0, 0.3);
 }
 
-.ButtonContainer {
-  top: 30px;
-  justify-content: center;
-}
-
 .ForgotPassword,
 .CreateAnAccount {
   top: 45px;
+  height: 0px;
   font-size: 13px;
   color: white;
   position: relative;
