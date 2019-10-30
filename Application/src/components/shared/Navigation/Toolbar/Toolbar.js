@@ -9,9 +9,11 @@ import classes from './Toolbar.module.css';
 
 const toolbar = (props) => (
     <header className={classes.Main}>
-        <NavLink to="/"><Logo className={classes.Logo} /></NavLink>
-        <NavLink to="/" className={classes.Home}><img src={Home} alt="Home icon" className={classes.Home}/></NavLink>
-        <Searchbar className={classes.Container1}/>
+        <div className={classes.LeftToolbar}>
+            <NavLink to="/"><Logo className={classes.Logo} /></NavLink>
+            <NavLink to="/" className={classes.Home}><img src={Home} alt="Home icon" className={classes.Home}/></NavLink>
+            <Searchbar className={classes.Container1}/>
+        </div>
         <NavigationItems isAuthenticated={props.isAuth} className={classes.Container2} />
     </header>
 );

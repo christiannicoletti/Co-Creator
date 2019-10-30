@@ -4,31 +4,44 @@
     justify-content: center;
     align-items: center;
     background-color: #06212D;
+    height: 45px;
+}
+
+.LeftToolbar {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .Logo {
     position: relative;
-    right: 130px;
+    margin: 0 18px;
     height: 25px;
+    top: 3px;
     width: 175px;
-    padding: 12px 10px 7px;
+}
+
+.Logo:hover {
+    filter: drop-shadow(1px 1px 8px rgba(0, 0, 0, 0.8));
 }
 
 .Home {
-    right: 60px;
     position: relative;
     color: white;
     height: 20px;
     text-decoration: none;
 }
 
+.Home:hover {
+    filter: drop-shadow(1px 1px 8px rgba(0, 0, 0, 0.8));
+}
+
 .Container1 {
-    position: relative;
-    right: 120px;
+    width: 500px;
 }
 
 .Container2 {
-    align-items: center;
     position: relative;
-    left: 30px;
+    align-items: center;
+    right: 20px;
 }
