@@ -84,9 +84,7 @@ class userform extends Component {
   submitHandler = event => {
     event.preventDefault();
     this.props.onAuth(
-      this.state.userForm.fullname.value,
       this.state.userForm.email.value,
-      this.state.userForm.username.value,
       this.state.userForm.password.value,
       this.state.isSignup
     );
@@ -144,41 +142,39 @@ class userform extends Component {
 
     let form = (
       <WithClass>
-        <div className={classes.Container}>
-          <form className={classes.Form} onSubmit={this.submitHandler}>
-            {formElementsArray.map(formElement => (
-              <Input
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
-                invalid={!formElement.config.valid[0]}
-                invalidMessage={formElement.config.valid[1]}
-                shouldValidate={formElement.config.validation}
-                touched={formElement.config.touched}
-                changed={event =>
-                  this.inputChangedHandler(event, formElement.id)
-                }
-              />
-            ))}
-          <div className={classes.Agreement}>
-            By clicking Create Account, you agree to our
-            <NavLink to="Terms">Terms of Use</NavLink>, and{" "}
-            <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
-          </div>
-          <Button
-            title="Create Account >"
-            className={classes.Button}
-            disabled={!this.state.formIsValid}
-          />
-          </form>
-          <div className={classes.AlreadyHaveAccount}>
-            Already have an account?
-          </div>
-          <NavLink className={classes.SignIn} to="signin">
-            Sign in
-          </NavLink>
+        <form onSubmit={this.submitHandler}>
+          {formElementsArray.map(formElement => (
+            <Input
+              key={formElement.id}
+              elementType={formElement.config.elementType}
+              elementConfig={formElement.config.elementConfig}
+              value={formElement.config.value}
+              invalid={!formElement.config.valid[0]}
+              invalidMessage={formElement.config.valid[1]}
+              shouldValidate={formElement.config.validation}
+              touched={formElement.config.touched}
+              changed={event =>
+                this.inputChangedHandler(event, formElement.id)
+              }
+            />
+          ))}
+        <div className={classes.Agreement}>
+          By clicking Create Account, you agree to our
+          <NavLink to="Terms">Terms of Use</NavLink>, and{" "}
+          <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
         </div>
+        <Button
+          title="Create Account >"
+          className={classes.Button}
+          disabled={!this.state.formIsValid}
+        />
+        </form>
+        <div className={classes.AlreadyHaveAccount}>
+          Already have an account?
+        </div>
+        <NavLink className={classes.SignIn} to="signin">
+          Sign in
+        </NavLink>
       </WithClass>
     );
 
@@ -188,10 +184,10 @@ class userform extends Component {
     }
 
     return (
-    <div className={this.props.className}>
+    <WithClass>
       {authRedirect}
       {form}
-    </div>
+    </WithClass>
     );
   }
 }

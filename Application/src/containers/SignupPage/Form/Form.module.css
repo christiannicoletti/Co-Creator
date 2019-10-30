@@ -2,21 +2,11 @@
 .Button,
 .AlreadyHaveAccount,
 .SignIn,
-.Container,
-.Form {
+.Container {
   position: relative;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-}
-
-.Container {
-  width: 100%;
-  flex-direction: column;
-}
-
-.Form {
-  flex-direction: column;
 }
 
 .Agreement {
