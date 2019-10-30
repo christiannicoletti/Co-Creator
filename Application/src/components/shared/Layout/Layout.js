@@ -15,7 +15,7 @@ class Layout extends Component {
     return (
       <WithClass>
         <Toolbar isAuth={this.props.isAuthenticated} />
-        <SubToolbar />
+        <SubToolbar isAuth={this.props.isAuthenticated} />
       </WithClass>
     );
   }
