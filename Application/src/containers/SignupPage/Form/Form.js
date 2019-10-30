@@ -28,13 +28,13 @@ class userform extends Component {
       email: {
         elementType: "input",
         elementConfig: {
-          type: "email",
-          type2: "phone",
+          type: "text",
           placeholder: "Email or Phone Number"
         },
         value: "",
         validation: {
-          required: true
+          required: true,
+          isPhoneAndEmail: true
         },
         valid: false,
         touched: false
@@ -98,12 +98,19 @@ class userform extends Component {
       formIsValid = updatedUserForm[inputIdentifier].valid[0] && formIsValid;
     }
 
+    this.checkResetHandler(event.target.value);
+
     // Setting new state
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
-  checkPhoneNumberHandler = (input) => {
-    return /^[2-9]\d{2}-\d{3}-\d{4}$/.test(input);
+  checkResetHandler = (value) => {
+    if (value === "") {
+      this.setState({ 
+        valid: false,
+        touched: false
+      });
+    }
   }
 
   render() {
@@ -130,9 +137,6 @@ class userform extends Component {
                 invalidMessage={formElement.config.valid[1]}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                isPhone={this.checkPhoneNumberHandler(formElement.config.value)}
-                typePhone={formElement.config.elementConfig.type2 === 'phone'}
-                typeEmail={formElement.config.elementConfig.type === 'email'}
                 changed={event => this.inputChangedHandler(event, formElement.id)}
               />
             ))}
