@@ -39,18 +39,20 @@ export const checkAuthTimeout = expirationTime => {
   };
 };
 
-export const auth = (email, password, isSignup) => {
+export const auth = (fullname, email, password, username, isSignup) => {
   return dispatch => {
     dispatch(authStart());
     const authData = {
+      fullname: fullname,
       email: email,
+      username: username,
       password: password,
       returnSecureToken: true
     };
-    let url = "us-central1-co-creator-144ca.cloudfunctions.net/signup";
+    let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCF16s6k9BswmqqiiS4dP58ZEx_-UZ-L1M";
     if (!isSignup) {
       url =
-        "us-central1-co-creator-144ca.cloudfunctions.net/signin";
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCF16s6k9BswmqqiiS4dP58ZEx_-UZ-L1M";
     }
     axios
       .post(url, authData)

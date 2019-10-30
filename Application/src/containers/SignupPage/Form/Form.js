@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react";
+import { Redirect, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from '../../../store/actions/index';
 
-import classes from './Form.module.css';
+import classes from "./Form.module.css";
 
-import Input from '../../../components/SignupPage/UI/Input/Input';
-import { checkValidity, updateObject} from '../../../shared/utility';
-import WithClass from '../../../hoc/withClass';
-import Button from '../../../components/shared/UI/Buttons/Buttons';
-
+import Input from "../../../components/SignupPage/UI/Input/Input";
+import { checkValidity, updateObject } from "../../../shared/utility";
+import WithClass from "../../../hoc/withClass";
+import Button from "../../../components/shared/UI/Buttons/Buttons";
 
 class userform extends Component {
   state = {
@@ -70,7 +71,25 @@ class userform extends Component {
       }
     },
     formIsValid: false,
-    loading: false
+    loading: false,
+    isSignup: true
+  };
+
+  componentDidMount() {
+    if (this.props.authRedirectPath !== '/') {
+      this.props.onSetAuthRedirectPath();
+    }
+  }
+
+  submitHandler = event => {
+    event.preventDefault();
+    this.props.onAuth(
+      this.state.userForm.fullname.value,
+      this.state.userForm.email.value,
+      this.state.userForm.username.value,
+      this.state.userForm.password.value,
+      this.state.isSignup
+    );
   };
 
   inputChangedHandler = (event, inputIdentifier) => {
@@ -86,7 +105,7 @@ class userform extends Component {
         touched: true
       }
     );
-    
+
     // Updating userForm
     const updatedUserForm = updateObject(this.state.userForm, {
       [inputIdentifier]: updatedFormElement
@@ -104,14 +123,14 @@ class userform extends Component {
     this.setState({ userForm: updatedUserForm, formIsValid: formIsValid });
   };
 
-  checkResetHandler = (value) => {
+  checkResetHandler = value => {
     if (value === "") {
-      this.setState({ 
+      this.setState({
         valid: false,
         touched: false
       });
     }
-  }
+  };
 
   render() {
     // Making sure every element mapped has a key
@@ -126,7 +145,7 @@ class userform extends Component {
     let form = (
       <WithClass>
         <div className={classes.Container}>
-          <form className={classes.Form}>
+          <form className={classes.Form} onSubmit={this.submitHandler}>
             {formElementsArray.map(formElement => (
               <Input
                 key={formElement.id}
@@ -137,31 +156,67 @@ class userform extends Component {
                 invalidMessage={formElement.config.valid[1]}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                changed={event => this.inputChangedHandler(event, formElement.id)}
+                changed={event =>
+                  this.inputChangedHandler(event, formElement.id)
+                }
               />
             ))}
-          </form>
           <div className={classes.Agreement}>
-            By clicking Create Account, you agree to our<NavLink to="Terms">Terms of Use</NavLink>, and <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
+            By clicking Create Account, you agree to our
+            <NavLink to="Terms">Terms of Use</NavLink>, and{" "}
+            <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
           </div>
-          <Button 
-          title="Create Account >" 
-          className={classes.Button}
-          disabled={!this.state.formIsValid}/>
+          <Button
+            title="Create Account >"
+            className={classes.Button}
+            disabled={!this.state.formIsValid}
+          />
+          </form>
           <div className={classes.AlreadyHaveAccount}>
             Already have an account?
           </div>
-          <NavLink className={classes.SignIn} to="signin">Sign in</NavLink>
+          <NavLink className={classes.SignIn} to="signin">
+            Sign in
+          </NavLink>
         </div>
       </WithClass>
     );
 
+    let authRedirect = null;
+    if (this.props.isAuthenticated) {
+      authRedirect = <Redirect to={this.props.authRedirectPath} />
+    }
+
     return (
-      <div className={this.props.className}>
-        {form}
-      </div>
+    <div className={this.props.className}>
+      {authRedirect}
+      {form}
+    </div>
     );
   }
 }
 
-export default userform;
+const mapStateToProps = state => {
+  return {
+    loading: state.auth.loading,
+    error: state.auth.error,
+    isAuthenticated: state.auth.token !== null,
+    authRedirectPath: state.auth.authRedirectPath
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAuth: (fullname, email, username, password, isSignup) => {
+      dispatch(actions.auth(fullname, email, password, username, isSignup));
+    },
+    onSetAuthRedirectPath: () => {
+      dispatch(actions.setAuthRedirectPath("/"));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(userform);
