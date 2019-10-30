@@ -10,6 +10,7 @@ export const checkValidity = (value, rules) => {
   let minimumLength = true;
   let maximumLength = true;
   let symbol = true;
+  let phoneandemail = true;
 
   if (rules.required) {
     isValid = value.trim() !== "" && isValid;
@@ -31,20 +32,26 @@ export const checkValidity = (value, rules) => {
   }
 
   if (rules.oneSymbolRequire) {
-    console.log(isSymbol(value))
-    isValid = !isSymbol(value) && isValid;
-    symbol = !isSymbol(value);
+    isValid = isSymbol(value) && isValid;
+    symbol = isSymbol(value);
   }
 
-  return [
-    isValid, [
-      minimumLength,
-      maximumLength,
-      symbol
-      ]
-  ];
+  if (rules.isPhoneAndEmail) {
+    isValid = (isPhone(value) || isEmail(value)) && isValid;
+    phoneandemail = isPhone(value) || isEmail(value);
+  }
+
+  return [isValid, [minimumLength, maximumLength, symbol]];
 };
 
-export const isSymbol = (str) => {
-  return !/[~`!#$@.?%&[^*+=\-_';,/{}|":<>]/g.test(str);
- }
+export const isSymbol = val => {
+  return /[~`!#$@.?%&[^*+=\-_';,/{}|":<>]/.test(val);
+};
+
+export const isPhone = val => {
+  return /^[2-9]\d{2}-\d{3}-\d{4}$/.test(val) || /^\d{10}$/.test(val);
+};
+
+export const isEmail = val => {
+  return /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(val);
+};
