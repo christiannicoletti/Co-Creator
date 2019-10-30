@@ -12,6 +12,7 @@
 
 .InputElement {
     position: relative;
+    margin: 0 auto;
     text-indent: 10px;
     height: 28px;
     width: 250px;
