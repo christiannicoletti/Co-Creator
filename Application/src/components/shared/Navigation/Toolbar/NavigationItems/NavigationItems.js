@@ -34,7 +34,7 @@ class navigationItems extends Component {
         <div className={classes.ProfileContainer}>
           <div className={classes.Username}>Christian Nicoletti</div>
           <img src={ProfilePicture} className={classes.ProfilePicture} />
-          <img src={DownArrow} className={classes.DownArrow} />
+          <img src={DownArrow} alt="Down arrow for collapsing/expanding" className={classes.DownArrow} />
         </div>
       </NavigationItem>
     </div>
