@@ -39,11 +39,13 @@ export const checkAuthTimeout = expirationTime => {
   };
 };
 
-export const auth = (email, password, isSignup) => {
+export const auth = (name, email, username, password, isSignup) => {
   return dispatch => {
     dispatch(authStart());
     const authData = {
+      name: name,
       email: email,
+      username: username,
       password: password,
       returnSecureToken: true
     };

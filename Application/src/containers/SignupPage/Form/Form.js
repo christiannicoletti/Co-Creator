@@ -13,7 +13,7 @@ import Button from "../../../components/shared/UI/Buttons/Buttons";
 class userform extends Component {
   state = {
     userForm: {
-      fullname: {
+      name: {
         elementType: "input",
         elementConfig: {
           type: "text",
@@ -84,7 +84,9 @@ class userform extends Component {
   submitHandler = event => {
     event.preventDefault();
     this.props.onAuth(
+      this.state.userForm.name.value,
       this.state.userForm.email.value,
+      this.state.userForm.username.value,
       this.state.userForm.password.value,
       this.state.isSignup
     );
@@ -203,8 +205,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (email, password, isSignup) => {
-      dispatch(actions.auth(email, password, isSignup));
+    onAuth: (name, email, username, password, isSignup) => {
+      dispatch(actions.auth(name, email, username, password, isSignup));
     },
     onSetAuthRedirectPath: () => {
       dispatch(actions.setAuthRedirectPath("/"));
