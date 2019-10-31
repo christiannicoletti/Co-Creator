@@ -99,10 +99,20 @@ export const auth = (name, email, displayName, password, isSignup) => {
       localStorage.setItem("userId", res.data.localId);
       dispatch(authSuccess(res.data.idToken, res.data.localId));
       dispatch(checkAuthTimeout(res.data.expiresIn));
+      if(isSignup){
+        console.log("User is signing up")
+        const user = await axios.post('https://us-central1-co-creator-144ca.cloudfunctions.net/addUser',{
+        name: name,
+        email: email,
+        username: displayName
+      });
+      console.log("User is created: ", user)
 
-      //const user = await axios.post()
-      
+      }
+    
+
     } catch (err) {
+      
       dispatch(authFail(err.response.data.error));
     }
   };
