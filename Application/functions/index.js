@@ -16,11 +16,14 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
   Goal: Add the new user to the Users collection, also maybe send them a Welcome email?
   */
   const db = admin.firestore();
-  const {uid, email, displayName, photoURL} = req.body;
+  const {uid, email, username, photoURL, name} = req.body;
+  console.log("Here is req.body: ", req.body)
+  
 
   const data = {
     email: email,
-    name: displayName,
+    name: name,
+    username: username,
     photo: photoURL,
     dateCreated: admin.firestore.Timestamp.now()
   }
@@ -30,11 +33,11 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
     console.log("Successfully created user!\n");
     console.log(setUser);
     console.log("User created at: ", setUser.writeTime);
-    return;
+    res.status(201).send("User added to database!")
   } catch (error) {
     console.log("Error Storing user in database \n");
     console.log(error);
-    return;
+    res.status(400).send('Bad Request');
   }
 
 })
