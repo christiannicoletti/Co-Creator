@@ -12,7 +12,20 @@ app.use(cors({ origin: true })); // firebase cors
 app.use(authenticate); // firebase authentication middleware
 
 
-exports.addUser = functions.https.onRequest(async (req, res) => {
+exports.addUser = functions.https.onRequest((req, res) => {
+  return cors(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+
+    if (req.method === 'OPTIONS') {
+      // Send response to OPTIONS requests
+      res.set('Access-Control-Allow-Methods', 'GET');
+      res.set('Access-Control-Allow-Headers', 'Content-Type');
+      res.set('Access-Control-Max-Age', '3600');
+      res.status(204).send('');
+    } else {
+      res.send('Hello World!');
+    }
+
     /*
     Trigger: whenever a new user signs up
     Goal: Add the new user to the Users collection, also maybe send them a Welcome email?
@@ -41,4 +54,5 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
       console.log(error);
       res.status(400).send('Bad Request');
     }
+  });
 })
