@@ -29,7 +29,7 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
       photo: photoURL,
       dateCreated: admin.firestore.Timestamp.now()
     }
-    console.log("Here is the user data ", user);
+    console.log("Here is the user data ", data);
     try {
       let setUser = await db.collection('users').doc(uid).set(data);
       console.log("Successfully created user!\n");
