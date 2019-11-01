@@ -17,7 +17,10 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
   */
   const db = admin.firestore();
   const {uid, email, username, photoURL, name} = req.body;
+  console.log("Here is the req: ", req);
   console.log("Here is req.body: ", req.body)
+  console.log('Here is the data', req.body.data)
+  
   
 
   const data = {
@@ -27,7 +30,6 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
     photo: photoURL,
     dateCreated: admin.firestore.Timestamp.now()
   }
-  console.log("Here is the user data ", user);
   try {
     let setUser = await db.collection('users').doc(uid).set(data);
     console.log("Successfully created user!\n");
