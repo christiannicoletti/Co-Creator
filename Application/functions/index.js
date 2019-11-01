@@ -41,5 +41,4 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
       console.log(error);
       res.status(400).send('Bad Request');
     }
-  });
 })
