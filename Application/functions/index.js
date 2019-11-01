@@ -20,7 +20,7 @@ exports.addUser = functions.https.onRequest((req, res) => {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     //respond to CORS preflight requests
-    if (req.method == 'OPTIONS') {
+    if (req.method === 'OPTIONS') {
         res.status(204).send('');
     }
 
