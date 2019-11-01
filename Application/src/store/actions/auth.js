@@ -1,6 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import axios from "../../axios";
-import { async } from "q";
+import axios from 'axios';
 
 export const authStart = () => {
   return {
@@ -101,18 +100,14 @@ export const auth = (name, email, displayName, password, isSignup) => {
       dispatch(checkAuthTimeout(res.data.expiresIn));
       if(isSignup){
         console.log("User is signing up")
-        const user = await axios.post('co-creator-144ca.web.app/addUser',{
+        const user = await axios.post('https://us-central1-co-creator-144ca.cloudfunctions.net/addUser',{
         name: name,
         email: email,
         username: displayName
       });
       console.log("User is created: ", user)
-
       }
-    
-
     } catch (err) {
-      
       dispatch(authFail(err.response.data.error));
     }
   };
