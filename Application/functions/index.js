@@ -14,16 +14,19 @@ app.use(authenticate); // firebase authentication middleware
 
 exports.addUser = functions.https.onRequest((req, res) => {
   return cors(async (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Origin', 'https://us-central1-co-creator-144ca.cloudfunctions.net/addUser');
+    res.set('Access-Control-Allow-Credentials', 'true');
 
     if (req.method === 'OPTIONS') {
       // Send response to OPTIONS requests
-      res.set('Access-Control-Allow-Methods', 'GET');
-      res.set('Access-Control-Allow-Headers', 'Content-Type');
+      res.set('Access-Control-Allow-Methods', 'GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH');
+      res.set('Access-Control-Allow-Headers', 'Authorization');
       res.set('Access-Control-Max-Age', '3600');
       res.status(204).send('');
     } else {
       res.send('Hello World!');
+    }
+
     }
 
     /*
