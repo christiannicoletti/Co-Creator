@@ -2,32 +2,18 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const express = require('express');
 const authenticate = require('./middleware/authenticate');
-const cors = require('cors')({ origin: true });
+const cors = require('cors');
 
 admin.initializeApp();
 
 const app = express();
 
+app.use(cors({ origin: true })); // firebase cors
 app.use(authenticate); // firebase authentication middleware
-app.use(cors); // firebase cors
 
 
 exports.addUser = functions.https.onRequest((req, res) => {
   return cors(async (req, res) => {
-    //set JSON content type and CORS headers for the response
-    res.set('Access-Control-Allow-Origin', '*');
-    res.set('Access-Control-Allow-Credentials', 'true');
-
-    //respond to CORS preflight requests
-    if (req.method === 'OPTIONS') {
-      res.set('Access-Control-Allow-Methods', 'GET, POST');
-      res.set('Access-Control-Allow-Headers', 'Authorization');
-      res.set('Access-Control-Max-Age', '3600');
-      res.status(204).send('');
-    } else {
-      res.send('Hello World!');
-    }
-
     /*
     Trigger: whenever a new user signs up
     Goal: Add the new user to the Users collection, also maybe send them a Welcome email?
