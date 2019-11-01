@@ -2,11 +2,13 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const express = require('express');
 const authenticate = require('./middleware/authenticate');
+const cors = require('cors');
 
 admin.initializeApp();
 
 const app = express();
 
+app.use(cors()); // firebase cors
 app.use(authenticate); // firebase authentication middleware
 
 
@@ -21,8 +23,6 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
   console.log("Here is req.body: ", req.body)
   console.log('Here is the data', req.body.data)
   
-  
-
   const data = {
     email: email,
     name: name,
@@ -41,5 +41,4 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
     console.log(error);
     res.status(400).send('Bad Request');
   }
-
 })
