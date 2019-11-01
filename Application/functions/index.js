@@ -14,9 +14,15 @@ app.use(cors); // firebase cors
 
 exports.addUser = functions.https.onRequest((req, res) => {
   return cors(async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE,HEAD,PUT,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    //set JSON content type and CORS headers for the response
+    res.header('Content-Type','application/json');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    //respond to CORS preflight requests
+    if (req.method == 'OPTIONS') {
+        res.status(204).send('');
+    }
 
     /*
     Trigger: whenever a new user signs up
