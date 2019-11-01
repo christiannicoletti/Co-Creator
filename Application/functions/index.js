@@ -2,12 +2,14 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const express = require('express');
 const authenticate = require('./middleware/authenticate');
+const cors = require('cors')({origin: true});
 
 admin.initializeApp();
 
 const app = express();
 
 app.use(authenticate); // firebase authentication middleware
+app.use(cors); // firebase cors
 
 
 exports.addUser = functions.https.onRequest(async (req, res) => {
