@@ -101,7 +101,7 @@ export const auth = (name, email, displayName, password, isSignup) => {
       dispatch(checkAuthTimeout(res.data.expiresIn));
       if(isSignup){
         console.log("User is signing up")
-        const user = await axios.post('https://us-central1-co-creator-144ca.cloudfunctions.net/addUser',{
+        const user = await axios.post('co-creator-144ca.web.app/addUser',{
         name: name,
         email: email,
         username: displayName
