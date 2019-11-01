@@ -15,13 +15,17 @@ app.use(cors); // firebase cors
 exports.addUser = functions.https.onRequest((req, res) => {
   return cors(async (req, res) => {
     //set JSON content type and CORS headers for the response
-    res.header('Content-Type','application/json');
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Credentials', 'true');
 
     //respond to CORS preflight requests
     if (req.method === 'OPTIONS') {
-        res.status(204).send('');
+      res.set('Access-Control-Allow-Methods', 'GET, POST');
+      res.set('Access-Control-Allow-Headers', 'Authorization');
+      res.set('Access-Control-Max-Age', '3600');
+      res.status(204).send('');
+    } else {
+      res.send('Hello World!');
     }
 
     /*
