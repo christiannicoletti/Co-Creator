@@ -14,6 +14,10 @@ app.use(cors); // firebase cors
 
 exports.addUser = functions.https.onRequest((req, res) => {
   return cors(async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE,HEAD,PUT,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
     /*
     Trigger: whenever a new user signs up
     Goal: Add the new user to the Users collection, also maybe send them a Welcome email?
