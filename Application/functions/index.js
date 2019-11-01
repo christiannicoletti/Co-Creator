@@ -27,8 +27,6 @@ exports.addUser = functions.https.onRequest((req, res) => {
       res.send('Hello World!');
     }
 
-    }
-
     /*
     Trigger: whenever a new user signs up
     Goal: Add the new user to the Users collection, also maybe send them a Welcome email?
