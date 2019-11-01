@@ -2,31 +2,15 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const express = require('express');
 const authenticate = require('./middleware/authenticate');
-const cors = require('cors');
 
 admin.initializeApp();
 
 const app = express();
 
-app.use(cors({ origin: true })); // firebase cors
 app.use(authenticate); // firebase authentication middleware
 
 
-exports.addUser = functions.https.onRequest((req, res) => {
-  return cors(async (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://us-central1-co-creator-144ca.cloudfunctions.net/addUser');
-    res.set('Access-Control-Allow-Credentials', 'true');
-
-    if (req.method === 'OPTIONS') {
-      // Send response to OPTIONS requests
-      res.set('Access-Control-Allow-Methods', 'GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH');
-      res.set('Access-Control-Allow-Headers', 'Authorization');
-      res.set('Access-Control-Max-Age', '3600');
-      res.status(204).send('');
-    } else {
-      res.send('Hello World!');
-    }
-
+exports.addUser = functions.https.onRequest(async (req, res) => {
     /*
     Trigger: whenever a new user signs up
     Goal: Add the new user to the Users collection, also maybe send them a Welcome email?
@@ -55,5 +39,4 @@ exports.addUser = functions.https.onRequest((req, res) => {
       console.log(error);
       res.status(400).send('Bad Request');
     }
-  });
 })
