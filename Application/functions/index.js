@@ -17,6 +17,8 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
   if (req.method === 'OPTIONS') {
     // Send response to OPTIONS requests
     res.set('Access-Control-Allow-Methods', 'GET, POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    res.set('Access-Control-Max-Age', '3600');
   }
 
   /*
@@ -40,6 +42,7 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
     console.log("Successfully created user!\n");
     console.log(setUser);
     console.log("User created at: ", setUser.writeTime);
+    res.status(204).send("User added to database!")
     res.status(201).send("User added to database!")
   } catch (error) {
     console.log("Error Storing user in database \n");
