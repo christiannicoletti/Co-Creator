@@ -106,11 +106,20 @@ export const authSignin = (email, password) => {
       const expirationData = new Date(
         new Date().getTime() + res.data.expiresIn * 1000
       );
+      const uid = res.data.localId;
       localStorage.setItem("token", res.data.idToken);
       localStorage.setItem("expirationDate", expirationData);
       localStorage.setItem("userId", res.data.localId);
       dispatch(authSuccess(res.data.idToken, res.data.localId));
       dispatch(checkAuthTimeout(res.data.expiresIn));
+
+      console.log("Retrieving user...");
+      let url_retrieve = `https://us-central1-co-creator-144ca.cloudfunctions.net/getUser`;
+      const user = {
+        uid: uid
+      };
+      const userData = await axios.post(url_retrieve, user);
+      console.log("User retrieved: ", userData);
     } catch (err) {
       dispatch(authFail(err.response.data.error));
     }
