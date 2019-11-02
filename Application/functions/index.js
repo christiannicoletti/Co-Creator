@@ -14,6 +14,11 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
 
   res.set('Access-Control-Allow-Origin', '*');
 
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET, POST');
+  }
+
   /*
   Goal: Add the new user to the Users collection, also maybe send them a Welcome email?
   */
