@@ -93,6 +93,7 @@ export const auth = (name, email, displayName, password, isSignup) => {
       const expirationData = new Date(
         new Date().getTime() + res.data.expiresIn * 1000
       );
+      const uid = res.data.localId;
       localStorage.setItem("token", res.data.idToken);
       localStorage.setItem("expirationDate", expirationData);
       localStorage.setItem("userId", res.data.localId);
@@ -101,6 +102,7 @@ export const auth = (name, email, displayName, password, isSignup) => {
       if(isSignup){
         console.log("User is signing up")
         const user = await axios.post('https://us-central1-co-creator-144ca.cloudfunctions.net/addUser',{
+        uid: uid,
         name: name,
         email: email,
         username: displayName
