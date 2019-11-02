@@ -44,8 +44,7 @@ class userform extends Component {
       }
     },
     formIsValid: false,
-    loading: false,
-    isSignup: false
+    loading: false
   };
 
   componentDidMount() {
@@ -177,8 +176,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (fullname, email, username, password, isSignup) => {
-      dispatch(actions.auth(fullname, email, password, username, isSignup));
+    onAuth: (email, password) => {
+      dispatch(actions.authSignin(email, password));
     },
     onSetAuthRedirectPath: () => {
       dispatch(actions.setAuthRedirectPath("/"));
