@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import axios from 'axios';
+import axios from "axios";
 
 export const authStart = () => {
   return {
@@ -45,7 +45,7 @@ export const checkAuthTimeout = expirationTime => {
 };
 
 export const authSignup = (name, email, displayName, password) => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(authStart());
     const authData = {
       name: name,
@@ -53,13 +53,13 @@ export const authSignup = (name, email, displayName, password) => {
       displayName: displayName,
       password: password,
       returnSecureToken: true
-    };  
+    };
     let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_API_KEY}`;
 
     try {
-      console.log("Authenticating email/password")
+      console.log("Authenticating email/password");
       const res = await axios.post(url, authData);
-      console.log("Authenticated email/password!")
+      console.log("Authenticated email/password!");
       const expirationData = new Date(
         new Date().getTime() + res.data.expiresIn * 1000
       );
@@ -70,21 +70,20 @@ export const authSignup = (name, email, displayName, password) => {
       dispatch(authSuccess(res.data.idToken, res.data.localId));
       dispatch(checkAuthTimeout(res.data.expiresIn));
 
-      console.log("Storing user...")
-      url = `https://us-central1-co-creator-144ca.cloudfunctions.net/addUser`
+      console.log("Storing user...");
+      let url_store = `https://us-central1-co-creator-144ca.cloudfunctions.net/addUser`;
       const userData = {
         uid: uid,
         name: name,
         email: email,
-        photoURL: 'hgfdhhfgd',
+        photoURL: "hgfdhhfgd",
         username: displayName
-      }
-      const user = await axios.post(url, userData);
+      };
+      const user = await axios.post(url_store, userData);
       localStorage.setItem("name", name);
-      localStorage.setItem("photoURL", 'hgfdhhfgd');
+      localStorage.setItem("photoURL", "hgfdhhfgd");
       localStorage.setItem("displayName", displayName);
-      console.log("User stored: ", user)
-
+      console.log("User stored: ", user);
     } catch (err) {
       dispatch(authFail(err));
     }
@@ -92,7 +91,7 @@ export const authSignup = (name, email, displayName, password) => {
 };
 
 export const authSignin = (email, password) => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(authStart());
     const authData = {
       email: email,
@@ -101,9 +100,9 @@ export const authSignin = (email, password) => {
     };
     let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}`;
     try {
-      console.log("Authenticating email/password")
+      console.log("Authenticating email/password");
       const res = await axios.post(url, authData);
-      console.log("Authenticated email/password!")
+      console.log("Authenticated email/password!");
       const expirationData = new Date(
         new Date().getTime() + res.data.expiresIn * 1000
       );
