@@ -16,12 +16,11 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
   if (req.method === "OPTIONS") {
     console.log("Setting CORS preflight options");
     // Send response to OPTIONS requests
-    res.set("Access-Control-Allow-Methods", "POST");
+    res.set("Access-Control-Allow-Methods", "GET, POST");
     res.set("Access-Control-Allow-Headers", "Content-Type");
     res.set("Access-Control-Max-Age", "3600");
 
-    // Might have issues again: if preflight not met, uncommment next line
-    // res.status(204).send('');
+    res.status(201).send("CORS preflight options set!");
   } else {
     // Starting storage of userData
     const db = admin.firestore();
@@ -60,31 +59,34 @@ exports.getUser = functions.https.onRequest(async (req, res) => {
   if (req.method === "OPTIONS") {
     console.log("Setting CORS preflight options");
     // Send response to OPTIONS requests
-    res.set("Access-Control-Allow-Methods", "GET");
+    res.set("Access-Control-Allow-Methods", "GET, POST");
     res.set("Access-Control-Allow-Headers", "Content-Type");
     res.set("Access-Control-Max-Age", "3600");
 
-    // Might have issues again: if preflight not met, uncommment next line
-    // res.status(204).send('');
+    res.status(201).send("CORS preflight options set!");
   } else {
     const db = admin.firestore();
     const { uid } = req.body;
     console.log("Here is req.body: ", req.body);
 
-    var docRef = db.collection("users").doc(uid);
+    let docRef = db.collection("users").doc(uid);
 
     docRef
       .get()
       .then(function(doc) {
         if (doc.exists) {
           console.log("Document data:", doc.data());
+          res.status(201).send(doc.data());
+          return doc.data();
         } else {
           // doc.data() will be undefined in this case
-          console.log("No such user!");
+          res.status(400).send("Bad Request");
+          return console.log("No such user!");
         }
       })
       .catch(function(error) {
-        console.log("Error getting user:", error);
+        res.status(400).send("Bad Request");
+        return console.log("Error getting user:", error);
       });
   }
 });

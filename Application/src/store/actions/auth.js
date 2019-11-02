@@ -119,9 +119,9 @@ export const authSignin = (email, password) => {
         uid: uid
       };
       const userData = await axios.post(url_retrieve, user);
-      console.log("User retrieved: ", userData);
+      console.log("User data retrieved: ", userData.data);
     } catch (err) {
-      dispatch(authFail(err.response.data.error));
+      dispatch(authFail(err));
     }
   };
 };
