@@ -105,6 +105,7 @@ export const auth = (name, email, displayName, password, isSignup) => {
         uid: uid,
         name: name,
         email: email,
+        photoURL: 'hgfdhhfgd',
         username: displayName
       });
       console.log("User is created: ", user)
