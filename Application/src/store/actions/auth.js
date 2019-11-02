@@ -26,6 +26,11 @@ export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("expirationDate");
   localStorage.removeItem("userId");
+  localStorage.removeItem("name");
+  localStorage.removeItem("photoURL");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("email");
+  localStorage.removeItem("displayName");
   return {
     type: actionTypes.AUTH_LOGOUT
   };
@@ -76,13 +81,12 @@ export const authSignup = (name, email, displayName, password) => {
       }
       const user = await axios.post(url, userData);
       localStorage.setItem("name", name);
-      localStorage.setItem("email", email);
       localStorage.setItem("photoURL", 'hgfdhhfgd');
       localStorage.setItem("displayName", displayName);
       console.log("User stored: ", user)
 
     } catch (err) {
-      dispatch(authFail(err.response.data.error));
+      dispatch(authFail(err));
     }
   };
 };
@@ -103,7 +107,6 @@ export const authSignin = (email, password) => {
       const expirationData = new Date(
         new Date().getTime() + res.data.expiresIn * 1000
       );
-      const uid = res.data.localId;
       localStorage.setItem("token", res.data.idToken);
       localStorage.setItem("expirationDate", expirationData);
       localStorage.setItem("userId", res.data.localId);

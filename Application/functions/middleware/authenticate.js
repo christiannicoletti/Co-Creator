@@ -32,6 +32,7 @@ const authenticateToken = async (req, res, next) => {
     const decodedIdToken = await admin.auth().verifyIdToken(idToken);
     console.log('ID Token correctly decoded', decodedIdToken);
     req.user = decodedIdToken;
+    res.status(200).send("SUCCESS");
     next();
     return;
   } catch (error) {

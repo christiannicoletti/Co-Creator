@@ -9,7 +9,6 @@ const app = express();
 
 app.use(authenticate); // firebase authentication middleware
 
-
 exports.addUser = functions.https.onRequest(async (req, res) => {
 
   res.set('Access-Control-Allow-Origin', '*');
@@ -19,6 +18,8 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
     res.set('Access-Control-Allow-Methods', 'GET, POST');
     res.set('Access-Control-Allow-Headers', 'Content-Type');
     res.set('Access-Control-Max-Age', '3600');
+  } else {
+    res.send('Hello World!');
   }
 
   /*
@@ -43,7 +44,6 @@ exports.addUser = functions.https.onRequest(async (req, res) => {
     console.log(setUser);
     console.log("User created at: ", setUser.writeTime);
     res.status(204).send("User added to database!")
-    res.status(201).send("User added to database!")
   } catch (error) {
     console.log("Error Storing user in database \n");
     console.log(error);
