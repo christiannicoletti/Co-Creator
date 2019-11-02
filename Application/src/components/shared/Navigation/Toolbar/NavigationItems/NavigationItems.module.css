@@ -10,22 +10,23 @@
   z-index: 2;
   top: -6px;
   height: 15px;
-  width: 159px;
+  width: 100%;
   background-color: #06212D;
 }
 
 .ProfileContainer {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   color: white;
   border: 1px solid grey;
   background: #06212D;
   padding: 5px;
+  width: 100%;
   border-radius: 6px;
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
 }
 
 .ProfileContainer:hover {
@@ -41,13 +42,16 @@
 .UserButtonContainer {
   position: relative;
   display: flex;
+  justify-content: flex-end;
   margin: 0 auto;
+  width: 100%;
   justify-content: center;
 }
 
 .Drawer {
   position: absolute;
   top: 36px;
+  width: 100%;
   z-index: 1;
   transition: transform 0.15s ease-out;
 }
@@ -64,7 +68,6 @@
 
 .ProfilePicture {
   display: flex;
-  margin: 0 auto;
   height: 25px;
   width: 25px;
   border-radius: 50%;

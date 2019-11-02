@@ -119,6 +119,9 @@ export const authSignin = (email, password) => {
         uid: uid
       };
       const userData = await axios.post(url_retrieve, user);
+      localStorage.setItem("name", userData.data.name);
+      localStorage.setItem("email", userData.data.email);
+      localStorage.setItem("username", userData.data.username);
       console.log("User data retrieved: ", userData.data);
     } catch (err) {
       dispatch(authFail(err));

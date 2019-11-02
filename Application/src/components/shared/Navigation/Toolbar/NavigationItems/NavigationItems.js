@@ -20,6 +20,7 @@ class navigationItems extends Component {
   }
 
   render() {
+    const name = localStorage.getItem("name");
     let drawer = null;
     let nav = (
       <div className={`${classes.NavigationItems} ${this.props.className}`}>
@@ -59,7 +60,7 @@ class navigationItems extends Component {
         <div className={classes.UserButtonContainer}>
           <div className={classes.Hide}/>
           <button className={profileClasses.join(' ')} onClick={this.displayUserDrawerHandler}>
-            <div className={classes.Username}>Christian Nicoletti</div>
+            <div className={classes.Username}>{`${name}`}</div>
             <img src={ProfilePicture} alt="Default prof pic" className={classes.ProfilePicture} />
             <img src={DownArrow} alt="Down arrow for collapsing/expanding" className={classes.DownArrow} />
           </button>
