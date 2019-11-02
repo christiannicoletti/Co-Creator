@@ -10,7 +10,6 @@ export const checkValidity = (value, rules) => {
   let minimumLength = true;
   let maximumLength = true;
   let symbol = true;
-  let phoneandemail = true;
 
   if (rules.required) {
     isValid = value.trim() !== "" && isValid;
@@ -38,7 +37,6 @@ export const checkValidity = (value, rules) => {
 
   if (rules.isPhoneAndEmail) {
     isValid = (isPhone(value) || isEmail(value)) && isValid;
-    phoneandemail = isPhone(value) || isEmail(value);
   }
 
   return [isValid, [minimumLength, maximumLength, symbol]];

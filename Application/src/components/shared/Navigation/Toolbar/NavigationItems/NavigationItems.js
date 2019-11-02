@@ -60,7 +60,7 @@ class navigationItems extends Component {
           <div className={classes.Hide}/>
           <button className={profileClasses.join(' ')} onClick={this.displayUserDrawerHandler}>
             <div className={classes.Username}>Christian Nicoletti</div>
-            <img src={ProfilePicture} className={classes.ProfilePicture} />
+            <img src={ProfilePicture} alt="Default prof pic" className={classes.ProfilePicture} />
             <img src={DownArrow} alt="Down arrow for collapsing/expanding" className={classes.DownArrow} />
           </button>
           <div className={drawerClasses.join(' ')}>
