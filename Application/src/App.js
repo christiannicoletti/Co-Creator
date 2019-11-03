@@ -12,6 +12,7 @@ import StartupsPage from "./components/StartupsPage/StartupsPage";
 import AboutPage from "./components/AboutPage/AboutPage";
 import ContactPage from "./components/ContactPage/ContactPage";
 import HelpPage from "./components/HelpPage/HelpPage";
+import UserPage from "./components/UserPage/UserPage";
 import WithClass from "./hoc/withClass";
 import Logout from './containers/shared/Logout/Logout';
 import * as actions from "./store/actions/index";
@@ -44,6 +45,7 @@ class App extends Component {
           <Route path="/about" exact component={AboutPage} />
           <Route path="/contact" exact component={ContactPage} />
           <Route path="/help" exact component={HelpPage} />
+          <Route path="/user/" component={UserPage} />
           <Route path="/logout" component={Logout} />
           <Redirect to="/" /> {/* Redirect anything other than routes specified to "/" */}
         </Switch>
