@@ -7,10 +7,11 @@ import WithClass from '../../../../../hoc/withClass';
 
 class navigationItems extends Component {
   render() {
+    const username = localStorage.getItem("username")
     return (
       <WithClass>
         <div className={`${classes.NavigationItems} ${this.props.className}`}>
-          <NavigationItem link="/profile" exact>
+          <NavigationItem link={`/user/${username}`} exact>
             Profile
           </NavigationItem>
           <NavigationItem link="/projects" exact>
