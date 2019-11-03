@@ -36,7 +36,7 @@ class ui extends Component {
             Making the project creation process easier
           </div>
           <Button
-            title="Find Projects >"
+            title="Find Projects "
             className={classes.Button}
             clicked={this.findProjectsContinued}
           />

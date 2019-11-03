@@ -30,7 +30,7 @@ export const logout = () => {
   localStorage.removeItem("photoURL");
   localStorage.removeItem("userId");
   localStorage.removeItem("email");
-  localStorage.removeItem("displayName");
+  localStorage.removeItem("username");
   return {
     type: actionTypes.AUTH_LOGOUT
   };
@@ -67,8 +67,6 @@ export const authSignup = (name, email, displayName, password) => {
       localStorage.setItem("token", res.data.idToken);
       localStorage.setItem("expirationDate", expirationData);
       localStorage.setItem("userId", res.data.localId);
-      dispatch(authSuccess(res.data.idToken, res.data.localId));
-      dispatch(checkAuthTimeout(res.data.expiresIn));
 
       console.log("Storing user...");
       let url_store = `https://us-central1-co-creator-144ca.cloudfunctions.net/addUser`;
@@ -82,8 +80,11 @@ export const authSignup = (name, email, displayName, password) => {
       const user = await axios.post(url_store, userData);
       localStorage.setItem("name", name);
       localStorage.setItem("photoURL", "hgfdhhfgd");
-      localStorage.setItem("displayName", displayName);
+      localStorage.setItem("username", displayName);
       console.log("User stored: ", user);
+
+      dispatch(authSuccess(res.data.idToken, res.data.localId));
+      dispatch(checkAuthTimeout(res.data.expiresIn));
     } catch (err) {
       dispatch(authFail(err));
     }
@@ -110,8 +111,6 @@ export const authSignin = (email, password) => {
       localStorage.setItem("token", res.data.idToken);
       localStorage.setItem("expirationDate", expirationData);
       localStorage.setItem("userId", res.data.localId);
-      dispatch(authSuccess(res.data.idToken, res.data.localId));
-      dispatch(checkAuthTimeout(res.data.expiresIn));
 
       console.log("Retrieving user...");
       let url_retrieve = `https://us-central1-co-creator-144ca.cloudfunctions.net/getUser`;
@@ -123,6 +122,9 @@ export const authSignin = (email, password) => {
       localStorage.setItem("email", userData.data.email);
       localStorage.setItem("username", userData.data.username);
       console.log("User data retrieved: ", userData.data);
+
+      dispatch(authSuccess(res.data.idToken, res.data.localId));
+      dispatch(checkAuthTimeout(res.data.expiresIn));
     } catch (err) {
       dispatch(authFail(err));
     }

@@ -6,6 +6,7 @@ const initialState = {
   userId: null,
   error: null,
   loading: false,
+  complete: false,
   authRedirectPath: '/'
 };
 
@@ -22,7 +23,8 @@ const reducer = (state = initialState, action) => {
         token: action.idToken,
         userId: action.userId,
         error: null,
-        loading: false
+        loading: false,
+        complete: true
       });
 
     case actionTypes.AUTH_FAIL:

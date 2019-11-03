@@ -48,7 +48,7 @@ class userform extends Component {
   };
 
   componentDidMount() {
-    if (this.props.authRedirectPath !== "/") {
+    if (this.props.authRedirectPath !== "/" && this.props.complete === true) {
       this.props.onSetAuthRedirectPath();
     }
   }
@@ -132,7 +132,7 @@ class userform extends Component {
             />
           ))}
           <Button
-            title="Sign in >"
+            title='Sign in '
             className={classes.Button}
             clicked={() =>
               this.signinClickedValidationHandler(this.state.formIsValid)

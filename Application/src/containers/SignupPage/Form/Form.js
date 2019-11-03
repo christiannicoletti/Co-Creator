@@ -75,7 +75,7 @@ class userform extends Component {
   };
 
   componentDidMount() {
-    if (this.props.authRedirectPath !== '/') {
+    if (this.props.authRedirectPath !== '/' && this.props.complete === true) {
       this.props.onSetAuthRedirectPath();
     }
   }
@@ -141,6 +141,7 @@ class userform extends Component {
       });
     }
 
+
     let form = (
       <WithClass>
         <form onSubmit={this.submitHandler}>
@@ -165,7 +166,7 @@ class userform extends Component {
           <NavLink to="PrivacyPolicy">Privacy Policy</NavLink>.
         </div>
         <Button
-          title="Create Account >"
+          title="Create Account "
           className={classes.Button}
           disabled={!this.state.formIsValid}
         />
@@ -196,6 +197,7 @@ class userform extends Component {
 const mapStateToProps = state => {
   return {
     loading: state.auth.loading,
+    complete: state.auth.complete,
     error: state.auth.error,
     isAuthenticated: state.auth.token !== null,
     authRedirectPath: state.auth.authRedirectPath
