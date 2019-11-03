@@ -1,0 +1,29 @@
+.PageContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  top: 90px;
+  background-color: white;
+  height: 500px;
+  width: 1200px;
+}
+
+.ProfilePicture {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  top: -50px;
+  border: 5px solid white;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.Name {
+  position: relative;
+  display: flex;
+  top: -40px;
+  font-size: 25px;
+  margin: 0 auto;
+}
