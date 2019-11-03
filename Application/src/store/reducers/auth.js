@@ -7,6 +7,7 @@ const initialState = {
   error: null,
   loading: false,
   complete: false,
+  store_complete: false,
   authRedirectPath: '/'
 };
 
@@ -25,6 +26,11 @@ const reducer = (state = initialState, action) => {
         error: null,
         loading: false,
         complete: true
+      });
+
+    case actionTypes.STORE_SUCCESS:
+      return updateObject(state, {
+        store_complete: true
       });
 
     case actionTypes.AUTH_FAIL:
