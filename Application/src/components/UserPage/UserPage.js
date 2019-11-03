@@ -7,6 +7,7 @@ import classes from "./UserPage.module.css";
 import WithClass from "../../hoc/withClass";
 import Background from "../shared/Background/Background";
 import Layout from "../shared/Layout/Layout";
+import Spinner from '../shared/UI/Spinner/Spinner';
 import ProfilePicture from '../../assets/images/Toolbar/default_picture.png';
 
 /**
@@ -20,24 +21,39 @@ class ui extends Component {
   }
 
   render() {
-    let name = null;
+    let publicName = null;
+    let privateName = null;
     let page = null;
+    let spinner = null;
+    let verifiedUser = null;
+
     if (this.props.store_complete) {
-      name = localStorage.getItem("publicuserinfoname");
+      publicName = localStorage.getItem("publicuserinfoname");
+      privateName = localStorage.getItem("name");
+      if (publicName === privateName) {
+        verifiedUser = 'Become a verified user';
+      }
       page = (
         <WithClass>
-          <Background />
-          <Layout />
-          <div className={classes.PageContainer}>
-            <img src={ProfilePicture} alt="Default prof pic" className={classes.ProfilePicture} />
-            <div className={classes.Name}>{name}</div>
+          <div className={classes.ProfileContainer}>
+            <div className={classes.CenterColumn}>
+              <img src={ProfilePicture} alt="Default prof pic" className={classes.ProfilePicture} />
+              <div className={classes.Name}>{publicName}</div>
+              <div className={classes.VerifiedUser}>{verifiedUser}</div>
+              <div className={classes.WorkBiography}>Add a work biography</div>
+            </div>
           </div>
         </WithClass>
       )
+    } else {
+      spinner = <Spinner />
     }
+
     return (
       <WithClass>
-        {page}
+        <Background />
+        <Layout />
+        {page}{spinner}
       </WithClass>
     );
   }

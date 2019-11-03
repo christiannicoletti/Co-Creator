@@ -1,7 +1,6 @@
-.PageContainer {
+.ProfileContainer {
   position: relative;
   display: flex;
-  flex-direction: column;
   margin: 0 auto;
   top: 90px;
   background-color: white;
@@ -9,11 +8,17 @@
   width: 1200px;
 }
 
-.ProfilePicture {
+.CenterColumn {
   position: relative;
   display: flex;
   margin: 0 auto;
+  flex-direction: column;
   top: -50px;
+}
+
+.ProfilePicture {
+  position: relative;
+  margin: 0 auto;
   border: 5px solid white;
   height: 100px;
   width: 100px;
@@ -22,8 +27,15 @@
 
 .Name {
   position: relative;
-  display: flex;
-  top: -40px;
+  margin: 0 auto;
   font-size: 25px;
+}
+
+.VerifiedUser {
+  margin: 5px auto;
+  color: #2390C8;
+}
+
+.WorkBiography {
   margin: 0 auto;
 }
