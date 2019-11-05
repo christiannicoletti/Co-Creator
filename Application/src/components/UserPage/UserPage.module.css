@@ -2,16 +2,76 @@
   position: relative;
   display: flex;
   margin: 0 auto;
+  flex-direction: row;
   top: 90px;
   background-color: white;
-  height: 500px;
-  width: 1200px;
+  height: 100%;
+  width: 1350px;
+}
+
+.LeftColumn {
+  position: relative;
+  display: flex;
+  width: 450px;
+  top: 20px;
+  flex-direction: column;
+}
+
+.CurrentProjectsTitle {
+  margin: 2px auto;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.PositionsExperiencedTitle {
+  margin: 20px auto;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.StatsContainer {
+  position: absolute;
+  left: 390px;
+  top: 30px;
+}
+
+.CommendmentsTitle {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: #2D2F90;
+}
+
+.FavoritesTitle {
+  position: relative;
+  display: flex;
+  left: 11px;
+  align-items: center;
+  flex-direction: row;
+  color: #FECC29;
+}
+
+.Number {
+  margin: auto 8px;
+  color: black;
+}
+
+.Commendment {
+  position: relative;
+  left: 4px;
+}
+
+.Favorite {
+  position: relative;
+  right: 2px;
 }
 
 .CenterColumn {
   position: relative;
   display: flex;
   margin: 0 auto;
+  justify-content: center;
+  width: 450px;
   flex-direction: column;
   top: -50px;
 }
@@ -25,17 +85,371 @@
   border-radius: 50%;
 }
 
+.AddProfilePicture {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background-color: white;
+  color: #2390C8;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  left: 210px;
+  margin-top: -180px;
+}
+
+.AddProfilePicture:hover {
+  background-color: rgb(184, 231, 255);
+  cursor: pointer;
+}
+
 .Name {
   position: relative;
   margin: 0 auto;
-  font-size: 25px;
+  font-size: 28px;
+  font-weight: 600;
 }
 
-.VerifiedUser {
-  margin: 5px auto;
-  color: #2390C8;
-}
-
-.WorkBiography {
+.VerifiedContainer {
+  position: relative;
+  display: flex;
   margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.becomeVerifiedUser {
+  margin: 2px auto;
+  color: #2390C8;
+  background: none;
+  border: none;
+}
+
+.becomeVerifiedUser:hover {
+  color: rgb(132, 214, 255);
+  cursor: pointer;
+}
+
+.Learn {
+  margin: 0 5px;
+  height: 14px;
+  width: 14px;
+}
+
+.WorkBiographyTitle {
+  margin: 2px auto;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.WorkBiographyContainer {
+  position: relative;
+  display: flex;
+  margin: 0 16px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Edit {
+  margin: 0 5px;
+  height: 15px;
+  width: 15px;
+}
+
+.WorkBiographyContent {
+  color: #2390C8;
+  margin: 2px auto;
+  background: none;
+  border: none;
+}
+
+.WorkBiographyContent:hover {
+  color: rgb(132, 214, 255);
+  cursor: pointer;
+}
+
+.AddSubjects {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  background-color: #A6E3E8;
+  color: #2390C8;
+  border: 1px solid #2390C8;
+  width: 400px;
+  padding: 2px;
+  margin-top: 10px;
+}
+
+.AddSubjects:hover {
+  background-color: rgb(194, 236, 255);
+  cursor: pointer;
+}
+
+.AddSubjectTags {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  background-color: #DED5DE;
+  border: 1px solid black;
+  width: 400px;
+  padding: 2px;
+  margin-top: 10px;
+}
+
+.AddSubjectTags:hover {
+  background-color: rgb(224, 219, 219);
+  cursor: pointer;
+}
+
+.SeekingPositionsTitle {
+  margin: 0 auto;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.RightColumn {
+  position: relative;
+  display: flex;
+  width: 450px;
+  top: 20px;
+  flex-direction: column;
+}
+
+.AddProjectPositions {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  background-color: #DED5DE;
+  border: 1px solid black;
+  width: 400px;
+  padding: 2px;
+  margin-top: 10px;
+}
+
+.AddProjectPositions:hover {
+  background-color: rgb(224, 219, 219);
+  cursor: pointer;
+}
+
+.SecondPage {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  top: 150px;
+  flex-direction: column;
+  height: 100%;
+  width: 800px;
+}
+
+.ExperienceContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.PastExperienceTitle {
+  position: relative;
+  margin-top: 40px;
+  margin-left: 80px;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 28px;
+}
+
+.AddPhotoTitleAndPositionContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.AddTitleAndPositionContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.AddCompanyOrProject {
+  font-weight: 700;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.AddCompanyOrProject:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.AddPosition {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.AddPosition:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.AddPhoto {
+  height: 66px;
+  width: 66px;
+}
+
+.AddEmploymentAndDateContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.AddEmploymentDate {
+  color: grey;
+}
+
+.AddEmploymentDate:hover {
+  color: rgb(179, 179, 179);
+  cursor: pointer;
+}
+
+.AddDescription {
+  margin-left: 30px;
+  width: 550px;
+}
+
+.AddDescription:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.EducationContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.EducationTitle {
+  position: relative;
+  margin-top: 40px;
+  margin-left: 80px;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 28px;
+}
+
+.AddPhotoAndUniversityContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.University {
+  height: 66px;
+  width: 66px;
+}
+
+.AddUniversityContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.AddUniversity {
+  font-weight: 700;
+}
+
+.AddUniversity:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.AddDegree {
+  font-weight: 600;
+}
+
+.AddDegree:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.AddMajor:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.AddDateCourseworkAndExtraContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.AddDateEducation {
+  color: grey;
+}
+
+.AddDateEducation:hover {
+  color: rgb(179, 179, 179);
+  cursor: pointer;
+}
+
+.CourseWorkContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+}
+
+.CourseworkTitle {
+  text-decoration: underline;
+}
+
+.AddCoursework {
+  list-style-type: circle;
+}
+
+.AddCoursework:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.ExtraContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+}
+
+.ExtraTitle {
+  text-decoration: underline;
+}
+
+.AddExtra {
+  list-style-type: circle;
+}
+
+.AddExtra:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.Spinner {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  top: 100px;
+  width: 100px;
+  height: 100px;
 }
