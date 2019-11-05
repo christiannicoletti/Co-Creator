@@ -15,12 +15,6 @@ export const authSuccess = (token, userId) => {
   };
 };
 
-export const storeSuccess = () => {
-  return {
-    type: actionTypes.STORE_SUCCESS
-  };
-};
-
 export const authFail = error => {
   return {
     type: actionTypes.AUTH_FAIL,
@@ -75,7 +69,7 @@ export const authSignup = (name, email, displayName, password) => {
       localStorage.setItem("userId", res.data.localId);
 
       console.log("Storing user...");
-      let url_store = `https://us-central1-co-creator-144ca.cloudfunctions.net/addPrivateUser`;
+      let url_store = `https://us-central1-co-creator-144ca.cloudfunctions.net/addPrivateandPublicUser`;
       const userData = {
         uid: uid,
         name: name,
@@ -131,26 +125,6 @@ export const authSignin = (email, password) => {
 
       dispatch(authSuccess(res.data.idToken, res.data.localId));
       dispatch(checkAuthTimeout(res.data.expiresIn));
-    } catch (err) {
-      dispatch(authFail(err));
-    }
-  };
-};
-
-export const fetchPublicUserInfo = (username) => {
-  return async dispatch => {
-    try {
-      let url_retrieve = `https://us-central1-co-creator-144ca.cloudfunctions.net/getPublicUser`;
-      const user = {
-        username: username
-      };
-      const userData = await axios.post(url_retrieve, user);
-      console.log("Public user data retrieved: ", userData.data);
-      localStorage.setItem("publicuserinfoname", userData.data.name);
-      localStorage.setItem("publicuserinfousername", userData.data.username);
-      localStorage.setItem("publicuserinfoemail", userData.data.email);
-      localStorage.setItem("publicuserinfophoto", userData.data.photo);
-      dispatch(storeSuccess());
     } catch (err) {
       dispatch(authFail(err));
     }

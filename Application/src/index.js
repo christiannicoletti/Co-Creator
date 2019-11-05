@@ -9,6 +9,8 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import authReducer from "./store/reducers/auth";
+import userProfileGetReducer from "./store/reducers/userProfileGet";
+import userProfilePostReducer from "./store/reducers/userProfilePost";
 
 // Necessary block for Stores and Reducers
 const composeEnhancers =
@@ -18,7 +20,9 @@ const composeEnhancers =
 
 // Reducers
 const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  userProfileGet: userProfileGetReducer,
+  userProfilePost: userProfilePostReducer
 });
 
 // Store

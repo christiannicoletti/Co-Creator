@@ -1,8 +1,15 @@
 export {
     authSignup,
     authSignin,
-    fetchPublicUserInfo,
     logout,
     setAuthRedirectPath,
     authCheckState
-} from './auth'
+} from './auth';
+
+export {
+    getPublicUserProfile
+} from './userProfileGet';
+
+export {
+    postBiography
+} from './userProfilePost';
