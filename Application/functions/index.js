@@ -9,7 +9,8 @@ const app = express();
 
 app.use(authenticate); // firebase authentication middleware
 
-exports.addPrivateUser = functions.https.onRequest(async (req, res) => {
+// Called when signing up
+exports.addPrivateandPublicUser = functions.https.onRequest(async (req, res) => {
   console.log("Setting CORS header");
   res.set("Access-Control-Allow-Origin", "*");
 
@@ -52,13 +53,14 @@ exports.addPrivateUser = functions.https.onRequest(async (req, res) => {
       console.log("User created at: ", setPublicUser.writeTime);
       res.status(201).send("User added to database!");
     } catch (error) {
-      console.log("Error Storing user in database \n");
+      console.log("Error storing user in database \n");
       console.log(error);
       res.status(400).send("Bad Request");
     }
   }
 });
 
+// Called when logging in (private user information such as tokens and UID)
 exports.getPrivateUser = functions.https.onRequest(async (req, res) => {
   console.log("Setting CORS header");
   res.set("Access-Control-Allow-Origin", "*");
@@ -98,6 +100,7 @@ exports.getPrivateUser = functions.https.onRequest(async (req, res) => {
   }
 });
 
+// Called when accessing a user profile page
 exports.getPublicUser = functions.https.onRequest(async (req, res) => {
   console.log("Setting CORS header");
   res.set("Access-Control-Allow-Origin", "*");
@@ -134,5 +137,45 @@ exports.getPublicUser = functions.https.onRequest(async (req, res) => {
         res.status(400).send("Bad Request");
         return console.log("Error getting user:", error);
       });
+  }
+});
+
+// Called when adding a user biography
+exports.postBiography = functions.https.onRequest(async (req, res) => {
+  console.log("Setting CORS header");
+  res.set("Access-Control-Allow-Origin", "*");
+
+  if (req.method === "OPTIONS") {
+    console.log("Setting CORS preflight options");
+    // Send response to OPTIONS requests
+    res.set("Access-Control-Allow-Methods", "GET, POST");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    res.set("Access-Control-Max-Age", "3600");
+
+    res.status(201).send("CORS preflight options set!");
+  } else {
+    // Starting storage of user biography
+    const db = admin.firestore();
+    const { username, workBiography } = req.body;
+    console.log("Here is req.body: ", req.body);
+
+    const data = {
+      workBiography: workBiography
+    };
+    console.log("Here is the user's biography: ", data);
+    try {
+      let setPublicWorkBiography = await db
+        .collection("public_user_information")
+        .doc(username)
+        .set(data);
+      console.log("Successfully created user biography!\n");
+      console.log(setPublicWorkBiography);
+      console.log("User biography created at: ", setPublicWorkBiography.writeTime);
+      res.status(201).send("User biography added to database!");
+    } catch (error) {
+      console.log("Error storing user biography \n");
+      console.log(error);
+      res.status(400).send("Bad Request");
+    }
   }
 });
