@@ -25,14 +25,19 @@ exports.addPrivateandPublicUser = functions.https.onRequest(async (req, res) => 
   } else {
     // Starting storage of userData
     const db = admin.firestore();
-    const { uid, email, username, photoURL, name } = req.body;
+    const { uid, email, username, photoURL, name, workBiography } = req.body;
     console.log("Here is req.body: ", req.body);
 
-    const data = {
+    const privateData = {
       email: email,
+      dateCreated: admin.firestore.Timestamp.now()
+    };
+    
+    const publicData = {
       name: name,
       username: username,
       photo: photoURL,
+      workBiography: workBiography,
       dateCreated: admin.firestore.Timestamp.now()
     };
     console.log("Here is userData: ", data);
@@ -40,14 +45,14 @@ exports.addPrivateandPublicUser = functions.https.onRequest(async (req, res) => 
       let setPrivateUser = await db
         .collection("private_user_information")
         .doc(uid)
-        .set(data);
+        .set(privateData);
       console.log("Successfully created user!\n");
       console.log(setPrivateUser);
       console.log("User created at: ", setPrivateUser.writeTime);
       let setPublicUser = await db
         .collection("public_user_information")
         .doc(username)
-        .set(data);
+        .set(publicData);
       console.log("Successfully created user!\n");
       console.log(setPublicUser);
       console.log("User created at: ", setPublicUser.writeTime);
@@ -167,11 +172,11 @@ exports.postBiography = functions.https.onRequest(async (req, res) => {
       let setPublicWorkBiography = await db
         .collection("public_user_information")
         .doc(username)
-        .set(data);
+        .update(data);
       console.log("Successfully created user biography!\n");
       console.log(setPublicWorkBiography);
       console.log("User biography created at: ", setPublicWorkBiography.writeTime);
-      res.status(201).send("User biography added to database!");
+      res.status(201).send(data);
     } catch (error) {
       console.log("Error storing user biography \n");
       console.log(error);
