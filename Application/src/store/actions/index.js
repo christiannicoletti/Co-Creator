@@ -11,5 +11,8 @@ export {
 } from './userProfileGet';
 
 export {
-    postBiography
+    postBiography,
+    postSubjectExperience,
+    postSubjectTags,
+    postProjectPositions
 } from './userProfilePost';
