@@ -25,10 +25,23 @@ exports.addPrivateandPublicUser = functions.https.onRequest(async (req, res) => 
   } else {
     // Starting storage of userData
     const db = admin.firestore();
-    const { uid, email, username, photoURL, name, workBiography } = req.body;
+    const { 
+      uid, 
+      email, 
+      username, 
+      photoURL, 
+      name, 
+      workBiography, 
+      projectPositions,
+      subjectExperience,
+      subjectTags
+    } = req.body;
     console.log("Here is req.body: ", req.body);
 
     const privateData = {
+      name: name,
+      username: username,
+      photo: photoURL,
       email: email,
       dateCreated: admin.firestore.Timestamp.now()
     };
@@ -38,9 +51,11 @@ exports.addPrivateandPublicUser = functions.https.onRequest(async (req, res) => 
       username: username,
       photo: photoURL,
       workBiography: workBiography,
+      projectPositions: projectPositions,
+      subjectExperience: subjectExperience,
+      subjectTags: subjectTags,
       dateCreated: admin.firestore.Timestamp.now()
     };
-    console.log("Here is userData: ", data);
     try {
       let setPrivateUser = await db
         .collection("private_user_information")
@@ -179,6 +194,132 @@ exports.postBiography = functions.https.onRequest(async (req, res) => {
       res.status(201).send(data);
     } catch (error) {
       console.log("Error storing user biography \n");
+      console.log(error);
+      res.status(400).send("Bad Request");
+    }
+  }
+});
+
+// Called when adding subjects a user needs experience in
+exports.postSubjectExperience = functions.https.onRequest(async (req, res) => {
+  console.log("Setting CORS header");
+  res.set("Access-Control-Allow-Origin", "*");
+
+  if (req.method === "OPTIONS") {
+    console.log("Setting CORS preflight options");
+    // Send response to OPTIONS requests
+    res.set("Access-Control-Allow-Methods", "GET, POST");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    res.set("Access-Control-Max-Age", "3600");
+
+    res.status(201).send("CORS preflight options set!");
+  } else {
+    // Starting addition of subject
+    const db = admin.firestore();
+    const { username, subjectExperience } = req.body;
+    console.log("Here is req.body: ", req.body);
+
+    const data = {
+      subjectExperience: subjectExperience
+    };
+    console.log("Here is the subject the user needs experience in: ", data);
+    try {
+      let setPublicSubjectExperience = await db
+        .collection("public_user_information")
+        .doc(username)
+        .update({
+          subjectExperience: admin.firestore.FieldValue.arrayUnion(subjectExperience)
+        });
+      console.log("Successfully added subject!\n");
+      console.log(setPublicSubjectExperience);
+      console.log("Subject added at: ", setPublicSubjectExperience.writeTime);
+      res.status(201).send(data);
+    } catch (error) {
+      console.log("Error adding subject \n");
+      console.log(error);
+      res.status(400).send("Bad Request");
+    }
+  }
+});
+
+// Called when adding a subject tag a user needs experience in
+exports.postSubjectTags = functions.https.onRequest(async (req, res) => {
+  console.log("Setting CORS header");
+  res.set("Access-Control-Allow-Origin", "*");
+
+  if (req.method === "OPTIONS") {
+    console.log("Setting CORS preflight options");
+    // Send response to OPTIONS requests
+    res.set("Access-Control-Allow-Methods", "GET, POST");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    res.set("Access-Control-Max-Age", "3600");
+
+    res.status(201).send("CORS preflight options set!");
+  } else {
+    // Starting addition of subject tag
+    const db = admin.firestore();
+    const { username, subjectTags } = req.body;
+    console.log("Here is req.body: ", req.body);
+
+    const data = {
+      subjectTags: subjectTags
+    };
+    console.log("Here is the subject tag that the user needs experience in: ", data);
+    try {
+      let setPublicSubjectTags = await db
+        .collection("public_user_information")
+        .doc(username)
+        .update({
+          subjectTags: admin.firestore.FieldValue.arrayUnion(subjectTags)
+        });
+      console.log("Successfully added subject tag!\n");
+      console.log(setPublicSubjectTags);
+      console.log("Subject tag added at: ", setPublicSubjectTags.writeTime);
+      res.status(201).send(data);
+    } catch (error) {
+      console.log("Error adding subject tag \n");
+      console.log(error);
+      res.status(400).send("Bad Request");
+    }
+  }
+});
+
+// Called when adding a project position a user needs experience in
+exports.postProjectPositions = functions.https.onRequest(async (req, res) => {
+  console.log("Setting CORS header");
+  res.set("Access-Control-Allow-Origin", "*");
+
+  if (req.method === "OPTIONS") {
+    console.log("Setting CORS preflight options");
+    // Send response to OPTIONS requests
+    res.set("Access-Control-Allow-Methods", "GET, POST");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    res.set("Access-Control-Max-Age", "3600");
+
+    res.status(201).send("CORS preflight options set!");
+  } else {
+    // Starting addition of project position
+    const db = admin.firestore();
+    const { username, projectPositions } = req.body;
+    console.log("Here is req.body: ", req.body);
+
+    const data = {
+      projectPositions: projectPositions
+    };
+    console.log("Here is the project position that the user needs experience in: ", data);
+    try {
+      let setPublicProjectPositions = await db
+        .collection("public_user_information")
+        .doc(username)
+        .update({
+          projectPositions: admin.firestore.FieldValue.arrayUnion(projectPositions)
+        });
+      console.log("Successfully added project position!\n");
+      console.log(setPublicProjectPositions);
+      console.log("Project Position added at: ", setPublicProjectPositions.writeTime);
+      res.status(201).send(data);
+    } catch (error) {
+      console.log("Error adding project position \n");
       console.log(error);
       res.status(400).send("Bad Request");
     }
