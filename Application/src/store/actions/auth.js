@@ -1,6 +1,12 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
+/*
+ *   Only information used for authentication:
+ *   email
+ *   password
+ */
+
 export const authStart = () => {
   return {
     type: actionTypes.AUTH_START
@@ -31,6 +37,13 @@ export const logout = () => {
   localStorage.removeItem("userId");
   localStorage.removeItem("email");
   localStorage.removeItem("username");
+  localStorage.removeItem("publicuserinfoname");
+  localStorage.removeItem("publicuserinfophoto");
+  localStorage.removeItem("publicuserinfousername");
+  localStorage.removeItem("publicuserinfoworkBiography");
+  localStorage.removeItem("publicuserinfoprojectPositions");
+  localStorage.removeItem("publicuserinfosubjectExperience");
+  localStorage.removeItem("publicuserinfosubjectTags");
   return {
     type: actionTypes.AUTH_LOGOUT
   };
@@ -74,12 +87,16 @@ export const authSignup = (name, email, displayName, password) => {
         uid: uid,
         name: name,
         email: email,
-        photoURL: "hgfdhhfgd",
-        username: displayName
+        photoURL: "gfdsg",
+        username: displayName,
+        workBiography: null,
+        projectPositions: null,
+        subjectExperience: null,
+        subjectTags: null
       };
       const user = await axios.post(url_store, userData);
       localStorage.setItem("name", name);
-      localStorage.setItem("photoURL", "hgfdhhfgd");
+      localStorage.setItem("photoURL", "");
       localStorage.setItem("username", displayName);
       console.log("Private user information stored: ", user);
 
