@@ -35,7 +35,6 @@ class App extends Component {
     return (
       <WithClass>
         <Switch>
-          <Route path="/" exact component={StartPage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/signin" exact component={asyncSigninPage} />
           <Route path="/howtostart" exact component={HowToStartPage} />
@@ -46,7 +45,8 @@ class App extends Component {
           <Route path="/contact" exact component={ContactPage} />
           <Route path="/help" exact component={HelpPage} />
           <Route path="/user/" component={UserPage} />
-          <Route path="/logout" component={Logout} />
+          <Route path="/logout" exact component={Logout} />
+          <Route path="/" exact component={StartPage} />
           <Redirect to="/" /> {/* Redirect anything other than routes specified to "/" */}
         </Switch>
       </WithClass>
