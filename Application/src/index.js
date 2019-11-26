@@ -11,6 +11,7 @@ import * as serviceWorker from "./serviceWorker";
 import authReducer from "./store/reducers/auth";
 import userProfileGetReducer from "./store/reducers/userProfileGet";
 import userProfilePostReducer from "./store/reducers/userProfilePost";
+import userProfileDeleteReducer from "./store/reducers/userProfileDelete";
 
 // Necessary block for Stores and Reducers
 const composeEnhancers =
@@ -22,7 +23,8 @@ const composeEnhancers =
 const rootReducer = combineReducers({
   auth: authReducer,
   userProfileGet: userProfileGetReducer,
-  userProfilePost: userProfilePostReducer
+  userProfilePost: userProfilePostReducer,
+  userProfileDelete: userProfileDeleteReducer
 });
 
 // Store
