@@ -19,9 +19,11 @@ import BiographyForm from "../../containers/UserPage/biographyForm/Form";
 import SubjectExperienceForm from "../../containers/UserPage/subjectExperienceForm/Form";
 import SubjectTagsForm from "../../containers/UserPage/subjectTagsForm/Form";
 import ProjectPositionsForm from "../../containers/UserPage/projectPositionsForm/Form";
+import Content from "./UI/Content/Content";
 
 /**
- * First Default landing page
+ * Profile user page
+ * (Handles both case of being the current user and a visiting user)
  *
  * Called by App.js in <Route>
  */
@@ -31,16 +33,23 @@ class ui extends Component {
     subjectExperienceForm: false,
     subjectTagsForm: false,
     projectPositionsForm: false,
+
     subjectExperienceArray: [],
     subjectTagsArray: [],
-    projectPositionsArray: []
+    projectPositionsArray: [],
+
+    profileOptions: false
+  };
+
+  getPublicUserProfile = () => {
+    return this.props.getPublicUserProfile(
+      `${this.props.location.pathname.match(/[^/]+$/)[0]}`
+    );
   };
 
   // Get the user's profile upon loading URL
   componentDidMount() {
-    this.props.getPublicUserProfile(
-      `${this.props.location.pathname.match(/[^/]+$/)[0]}`
-    );
+    this.getPublicUserProfile();
   }
 
   // If redirecting back to user profile owner's page, update profile
@@ -49,31 +58,23 @@ class ui extends Component {
       this.props.location.pathname.match(/[^/]+$/)[0] !==
       prevProps.location.pathname.match(/[^/]+$/)[0]
     ) {
-      this.props.getPublicUserProfile(
-        `${this.props.location.pathname.match(/[^/]+$/)[0]}`
-      );
+      this.getPublicUserProfile();
     }
   }
 
-  switchBiographyForm = () => {
-    this.setState({ biographyForm: !this.state.biographyForm });
+  switchForm = (form, formValue) => {
+    this.setState({ [form]: !formValue });
   };
 
-  switchSubjectExperienceForm = () => {
-    this.setState({ subjectExperienceForm: !this.state.subjectExperienceForm });
+  toggleProfilePictureOptions = () => {
+    this.setState(prevState => ({
+      profileOptions: !prevState.profileOptions
+    }));
   };
 
-  switchSubjectTagsForm = () => {
-    this.setState({ subjectTagsForm: !this.state.subjectTagsForm });
+  handleFrontEndDelete = (arrayName, array, id) => {
+    this.setState({ [arrayName]: array.filter(el => el !== id) });
   };
-
-  switchProjectPositionsForm = () => {
-    this.setState({ projectPositionsForm: !this.state.projectPositionsForm });
-  };
-
-  handleDelete = (id) => {
-    this.setState(({ subjectExperienceArray: this.state.subjectExperienceArray.filter(element => element !== id )}));
-  }
 
   render() {
     let spinner = null;
@@ -90,7 +91,6 @@ class ui extends Component {
 
     // "Adding" elements
     let addProfilePic = null;
-    let becomeVerifiedUser = null;
     let addBiography = null;
     let addSubjectExperience = null;
     let addSubjectTags = null;
@@ -105,12 +105,17 @@ class ui extends Component {
     let addDateEducation = null;
     let addCoursework = null;
     let addExtra = null;
-
+    
     // "Edit" elements
     let editBiography = null;
     let editSubjectExperience = null;
     let editSubjectTags = null;
     let editProjectPositions = null;
+    
+
+    // Misc items for now
+    let becomeVerifiedUser = null;
+    let profileOptionsDiv = null;
 
     // Whole page elements
     let page = null;
@@ -127,46 +132,85 @@ class ui extends Component {
       subjectTags = localStorage.getItem("publicuserinfosubjectTags");
       projectPositions = localStorage.getItem("publicuserinfoprojectPositions");
 
-      // Parse some localSorage items to an array
+      // Parse subjectExperience localStorage items to an array
       if (subjectExperience[0] !== "null") {
         subjectExperience = subjectExperience.split(",");
       }
 
-      for (let key in subjectExperience) {
-        this.state.subjectExperienceArray.push({
-          id: key,
-          subject: subjectExperience[key]
-        });
+      if (!this.props.deleteUserProfileContentLoading) {
+        for (let key in subjectExperience) {
+          if (
+            !this.state.subjectExperienceArray.some(
+              e => e.content === subjectExperience[key]
+            )
+          ) {
+            this.state.subjectExperienceArray.push({
+              id: key,
+              content: subjectExperience[key]
+            });
+          }
+        }
       }
 
+      // Parse subjectTags localStorage items to an array
       if (subjectTags[0] !== "null") {
         subjectTags = subjectTags.split(",");
       }
 
-      for (let key in subjectTags) {
-        this.state.subjectTagsArray.push({
-          id: key,
-          tag: subjectTags[key]
-        });
+      if (!this.props.deleteUserProfileContentLoading) {
+        for (let key in subjectTags) {
+          if (
+            !this.state.subjectTagsArray.some(
+              e => e.content === subjectTags[key]
+            )
+          ) {
+            this.state.subjectTagsArray.push({
+              id: key,
+              content: subjectTags[key]
+            });
+          }
+        }
       }
 
+      // Parse projectPositions localStorage items to an array
       if (projectPositions[0] !== "null") {
         projectPositions = projectPositions.split(",");
       }
 
-      for (let key in projectPositions) {
-        this.state.projectPositionsArray.push({
-          id: key,
-          position: projectPositions[key]
-        });
+      if (!this.props.deleteUserProfileContentLoading) {
+        for (let key in projectPositions) {
+          if (
+            !this.state.projectPositionsArray.some(
+              e => e.content === projectPositions[key]
+            )
+          ) {
+            this.state.projectPositionsArray.push({
+              id: key,
+              content: projectPositions[key]
+            });
+          }
+        }
       }
 
       // Checking if this public profile is the current user's profile
       // Check will be changed to check uid instead of privatename
       if (publicName === privateName) {
         addProfilePic = (
-          <button className={classes.AddProfilePicture}>+</button>
+          <button
+            className={classes.AddProfilePicture}
+            onClick={this.toggleProfilePictureOptions}
+          >
+            +
+          </button>
         );
+
+        if (this.state.profileOptions) {
+          profileOptionsDiv = (
+            <div className={classes.ProfilePictureOptionsContainer}>
+              <div className={classes.ProfilePictureOptions} />
+            </div>
+          );
+        }
 
         becomeVerifiedUser = (
           // Container for both pencil icon & text
@@ -186,7 +230,11 @@ class ui extends Component {
           if (this.state.biographyForm) {
             addBiography = (
               <WithClass>
-                <BiographyForm switchBiographyForm={this.switchBiographyForm} />
+                <BiographyForm
+                  switchForm={() =>
+                    this.switchForm("biographyForm", this.state.biographyForm)
+                  }
+                />
               </WithClass>
             );
           } else {
@@ -195,7 +243,9 @@ class ui extends Component {
               <div className={classes.WorkBiographyContainer}>
                 <button
                   className={classes.WorkBiographyButton}
-                  onClick={this.switchBiographyForm}
+                  onClick={() =>
+                    this.switchForm("biographyForm", this.state.biographyForm)
+                  }
                 >
                   <img
                     src={Edit}
@@ -211,7 +261,11 @@ class ui extends Component {
           if (this.state.biographyForm) {
             editBiography = (
               <WithClass>
-                <BiographyForm switchBiographyForm={this.switchBiographyForm} />
+                <BiographyForm
+                  switchForm={() =>
+                    this.switchForm("biographyForm", this.state.biographyForm)
+                  }
+                />
               </WithClass>
             );
           } else {
@@ -221,7 +275,9 @@ class ui extends Component {
                 <div className={classes.WorkBiographyContainer}>
                   <button
                     className={classes.WorkBiographyButton}
-                    onClick={this.switchBiographyForm}
+                    onClick={() =>
+                      this.switchForm("biographyForm", this.state.biographyForm)
+                    }
                   >
                     <img
                       src={Edit}
@@ -244,7 +300,12 @@ class ui extends Component {
             addSubjectExperience = (
               <WithClass>
                 <SubjectExperienceForm
-                  switchSubjectExperienceForm={this.switchSubjectExperienceForm}
+                  switchForm={() =>
+                    this.switchForm(
+                      "subjectExperienceForm",
+                      this.state.subjectExperienceForm
+                    )
+                  }
                 />
               </WithClass>
             );
@@ -252,7 +313,12 @@ class ui extends Component {
             addSubjectExperience = (
               <button
                 className={classes.AddSubjects}
-                onClick={this.switchSubjectExperienceForm}
+                onClick={() =>
+                  this.switchForm(
+                    "subjectExperienceForm",
+                    this.state.subjectExperienceForm
+                  )
+                }
               >
                 + Add subjects you would like experience in
               </button>
@@ -263,7 +329,12 @@ class ui extends Component {
             editSubjectExperience = (
               <WithClass>
                 <SubjectExperienceForm
-                  switchSubjectExperienceForm={this.switchSubjectExperienceForm}
+                  switchForm={() =>
+                    this.switchForm(
+                      "subjectExperienceForm",
+                      this.state.subjectExperienceForm
+                    )
+                  }
                 />
               </WithClass>
             );
@@ -273,7 +344,12 @@ class ui extends Component {
               <WithClass>
                 <button
                   className={classes.AddSubjects}
-                  onClick={this.switchSubjectExperienceForm}
+                  onClick={() =>
+                    this.switchForm(
+                      "subjectExperienceForm",
+                      this.state.subjectExperienceForm
+                    )
+                  }
                 >
                   + Edit subjects you would like experience in
                 </button>
@@ -287,7 +363,12 @@ class ui extends Component {
             addSubjectTags = (
               <WithClass>
                 <SubjectTagsForm
-                  switchSubjectTagsForm={this.switchSubjectTagsForm}
+                  switchForm={() =>
+                    this.switchForm(
+                      "subjectTagsForm",
+                      this.state.subjectTagsForm
+                    )
+                  }
                 />
               </WithClass>
             );
@@ -295,7 +376,9 @@ class ui extends Component {
             addSubjectTags = (
               <button
                 className={classes.AddSubjectTags}
-                onClick={this.switchSubjectTagsForm}
+                onClick={() =>
+                  this.switchForm("subjectTagsForm", this.state.subjectTagsForm)
+                }
               >
                 + Add subject specific tags
               </button>
@@ -306,7 +389,12 @@ class ui extends Component {
             editSubjectTags = (
               <WithClass>
                 <SubjectTagsForm
-                  switchSubjectTagsForm={this.switchSubjectTagsForm}
+                  switchForm={() =>
+                    this.switchForm(
+                      "subjectTagsForm",
+                      this.state.subjectTagsForm
+                    )
+                  }
                 />
               </WithClass>
             );
@@ -316,7 +404,12 @@ class ui extends Component {
               <WithClass>
                 <button
                   className={classes.AddSubjectTags}
-                  onClick={this.switchSubjectTagsForm}
+                  onClick={() =>
+                    this.switchForm(
+                      "subjectTagsForm",
+                      this.state.subjectTagsForm
+                    )
+                  }
                 >
                   + Edit subject specific tags
                 </button>
@@ -333,7 +426,12 @@ class ui extends Component {
             addProjectPositions = (
               <WithClass>
                 <ProjectPositionsForm
-                  switchProjectPositionsForm={this.switchProjectPositionsForm}
+                  switchForm={() =>
+                    this.switchForm(
+                      "projectPositionsForm",
+                      this.state.projectPositionsForm
+                    )
+                  }
                 />
               </WithClass>
             );
@@ -341,7 +439,12 @@ class ui extends Component {
             addProjectPositions = (
               <button
                 className={classes.AddProjectPositions}
-                onClick={this.switchProjectPositionsForm}
+                onClick={() =>
+                  this.switchForm(
+                    "projectPositionsForm",
+                    this.state.projectPositionsForm
+                  )
+                }
               >
                 + Add project positions you are seeking
               </button>
@@ -352,7 +455,12 @@ class ui extends Component {
             editProjectPositions = (
               <WithClass>
                 <ProjectPositionsForm
-                  switchProjectPositionsForm={this.switchProjectPositionsForm}
+                  switchForm={() =>
+                    this.switchForm(
+                      "projectPositionsForm",
+                      this.state.projectPositionsForm
+                    )
+                  }
                 />
               </WithClass>
             );
@@ -362,7 +470,12 @@ class ui extends Component {
               <WithClass>
                 <button
                   className={classes.AddSubjectTags}
-                  onClick={this.switchProjectPositionsForm}
+                  onClick={() =>
+                    this.switchForm(
+                      "projectPositionsForm",
+                      this.state.projectPositionsForm
+                    )
+                  }
                 >
                   + Edit subject specific tags
                 </button>
@@ -475,6 +588,7 @@ class ui extends Component {
                 className={classes.ProfilePicture}
               />
               {addProfilePic}
+              {profileOptionsDiv}
               <div className={classes.Name}>{publicName}</div>
               {becomeVerifiedUser}
               <div className={classes.WorkBiographyTitle}>Work Biography</div>
@@ -496,7 +610,6 @@ class ui extends Component {
                   {editBiography}
                 </WithClass>
               ) : null}
-
               {(subjectExperience[0] !== "null" &&
                 subjectExperience[0] !== "undefined") ||
               this.props.postSubjectExperienceLoading ? (
@@ -504,15 +617,13 @@ class ui extends Component {
                   {this.props.postSubjectExperienceLoading ? (
                     <Spinner className={classes.biographySpinner} />
                   ) : (
-                    this.state.subjectExperienceArray.map(subjectExperience => (
-                      <div
-                        key={subjectExperience.id}
-                        className={classes.SubjectExperience}
-                        onClick={() => this.handleDelete(subjectExperience.id)}
-                      >
-                        {subjectExperience.subject}
-                      </div>
-                    ))
+                    <Content
+                      deleteFrontEnd={this.handleFrontEndDelete}
+                      username={this.props.location.pathname.match(/[^/]+$/)[0]}
+                      arrayName={"subjectExperience"}
+                      array={this.state.subjectExperienceArray}
+                      class={classes.SubjectExperience}
+                    />
                   )}
                 </div>
               ) : null}
@@ -530,14 +641,13 @@ class ui extends Component {
                   {this.props.postSubjectTagsLoading ? (
                     <Spinner className={classes.biographySpinner} />
                   ) : (
-                    this.state.subjectTagsArray.map(subjectTags => (
-                      <div 
-                        key={subjectTags.id} 
-                        className={classes.SubjectTags}
-                      >
-                        {subjectTags.tag}
-                      </div>
-                    ))
+                    <Content
+                      deleteFrontEnd={this.handleFrontEndDelete}
+                      username={this.props.location.pathname.match(/[^/]+$/)[0]}
+                      arrayName={"subjectTags"}
+                      array={this.state.subjectTagsArray}
+                      class={classes.SubjectTags}
+                    />
                   )}
                 </div>
               ) : null}
@@ -559,14 +669,13 @@ class ui extends Component {
                   {this.props.postProjectPositionsLoading ? (
                     <Spinner className={classes.biographySpinner} />
                   ) : (
-                    this.state.projectPositionsArray.map(projectPositions => (
-                      <div
-                        key={projectPositions.id}
-                        className={classes.ProjectPositions}
-                      >
-                        {projectPositions.position}
-                      </div>
-                    ))
+                    <Content
+                      deleteFrontEnd={this.handleFrontEndDelete}
+                      username={this.props.location.pathname.match(/[^/]+$/)[0]}
+                      arrayName={"projectPositions"}
+                      array={this.state.projectPositionsArray}
+                      class={classes.ProjectPositions}
+                    />
                   )}
                 </div>
               ) : null}
@@ -644,7 +753,7 @@ class ui extends Component {
         </WithClass>
       );
     } else {
-      // Shows spinner until profile page loads
+      // Shows spinner until user profile page loads
       spinner = <Spinner className={classes.Spinner} />;
     }
 
@@ -669,7 +778,10 @@ const mapStateToProps = state => {
       state.userProfilePost.postSubjectExperienceLoading,
     postSubjectTagsLoading: state.userProfilePost.postSubjectTagsLoading,
     postProjectPositionsLoading:
-      state.userProfilePost.postProjectPositionsLoading
+      state.userProfilePost.postProjectPositionsLoading,
+
+    deleteUserProfileContentLoading:
+      state.userProfileDelete.deleteUserProfileContentLoading
   };
 };
 
@@ -681,7 +793,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ui);
+export default connect(mapStateToProps, mapDispatchToProps)(ui);

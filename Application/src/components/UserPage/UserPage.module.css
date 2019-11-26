@@ -78,7 +78,7 @@
 
 .ProfilePicture {
   position: relative;
-  margin: 0 auto;
+  margin: -5px auto;
   border: 5px solid white;
   height: 100px;
   width: 100px;
@@ -105,6 +105,20 @@
   cursor: pointer;
 }
 
+.ProfilePictureOptionsContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.ProfilePictureOptions {
+  position: absolute;
+  z-index: 2;
+  background-color: black;
+  height: 200px;
+  width: 200px;
+}
+
 .Name {
   position: relative;
   margin: 0 auto;
@@ -122,7 +136,7 @@
 }
 
 .becomeVerifiedUser {
-  margin: 2px auto;
+  margin: 3px auto;
   color: #2390C8;
   background: none;
   border: none;
@@ -134,7 +148,7 @@
 }
 
 .Learn {
-  margin: 0 5px;
+  margin: -2px 5px;
   height: 14px;
   width: 14px;
 }
@@ -148,13 +162,12 @@
 .WorkBiographyContainer {
   position: relative;
   display: flex;
-  margin: 0 16px;
   flex-direction: row;
   align-items: center;
 }
 
 .Edit {
-  margin: 0 5px;
+  margin: -2px 5px;
   height: 15px;
   width: 15px;
 }
