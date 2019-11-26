@@ -139,7 +139,7 @@ class userform extends Component {
             <Button
               title="Cancel "
               className={classes.CancelButton}
-              clicked={this.props.switchSubjectExperienceForm}
+              clicked={this.props.switchForm}
             />
           </div>
         </form>

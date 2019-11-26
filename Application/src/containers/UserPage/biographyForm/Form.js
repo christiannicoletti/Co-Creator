@@ -37,7 +37,6 @@ class userform extends Component {
       username,
       this.state.workBiography.information.value
     );
-    this.props.switchBiographyForm()
   };
 
   inputChangedHandler = (event, inputIdentifier) => {
@@ -116,7 +115,7 @@ class userform extends Component {
             <Button
               title="Cancel "
               className={classes.CancelButton}
-              clicked={this.props.switchBiographyForm}
+              clicked={this.props.switchForm}
             />
           </div>
         </form>
