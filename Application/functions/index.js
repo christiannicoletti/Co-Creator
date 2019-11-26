@@ -325,3 +325,51 @@ exports.postProjectPositions = functions.https.onRequest(async (req, res) => {
     }
   }
 });
+
+// Called when deleting a certain part of a user profile
+exports.deleteUserContent = functions.https.onRequest(async (req, res) => {
+  console.log("Setting CORS header");
+  res.set("Access-Control-Allow-Origin", "*");
+
+  if (req.method === "OPTIONS") {
+    console.log("Setting CORS preflight options");
+    // Send response to OPTIONS requests
+    res.set("Access-Control-Allow-Methods", "GET, POST");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    res.set("Access-Control-Max-Age", "3600");
+
+    res.status(201).send("CORS preflight options set!");
+  } else {
+    // Starting deletion of public user content data
+    const db = admin.firestore();
+    const { username, array } = req.body;
+    console.log("Here is req.body: ", req.body);
+    console.log(req);
+    console.log(req.body);
+    console.log(array)
+    console.log(Object.keys(req.body)[1]);
+    console.log(Object.values(req.body)[1]);
+    console.log({[Object.keys(req.body)[1]]: Object.values(req.body)[1]})
+
+    const data = {
+      username: username,
+      [Object.keys(req.body)[1]]: Object.values(req.body)[1]
+    };
+    console.log("Here is what user is deleting what: ", data);
+    console.log(username);
+    try {
+      let setPublicProjectPositions = await db
+        .collection("public_user_information")
+        .doc(username)
+        .update({[Object.keys(req.body)[1]]: Object.values(req.body)[1]});
+      console.log("Successfully deleted content!\n");
+      console.log(setPublicProjectPositions);
+      console.log("Content deleted at: ", setPublicProjectPositions.writeTime);
+      res.status(201).send(data);
+    } catch (error) {
+      console.log("Error deleting \n");
+      console.log(error);
+      res.status(400).send("Bad Request");
+    }
+  }
+});
