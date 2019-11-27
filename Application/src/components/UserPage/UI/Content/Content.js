@@ -46,6 +46,7 @@ class content extends Component {
     let privateName = localStorage.getItem("name");
 
     const spinner = <Spinner className={classes.Spinner} />
+    const deleteTag = <Delete />
 
     return this.props.array.map((arraycontent, index) => (
       <div
@@ -61,12 +62,12 @@ class content extends Component {
           ? arraycontent.content ===
               localStorage.getItem(`${arraycontent.content}`) &&
             this.state.clickId === index
-            ? `${arraycontent.content} ${spinner} x`
-            : (`${arraycontent.content} x`)
+            ? ([`${arraycontent.content}`, spinner, deleteTag])
+            : ([`${arraycontent.content}`, deleteTag])
           : arraycontent.content ===
               localStorage.getItem(`${arraycontent.content}`) &&
             this.state.clickId === index
-            ? `${arraycontent.content} ${spinner}`
+            ? ([`${arraycontent.content}`, spinner])
             : arraycontent.content}
       </div>
     ));

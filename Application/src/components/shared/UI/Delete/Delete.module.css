@@ -1,0 +1,30 @@
+.XContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  margin-top: 2px;
+  margin-right: -3px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  line-height: 50px;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+
+.XContainer:hover {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.XContainer:hover > .X {
+  color: rgb(0, 0, 0);
+}
+
+.X {
+  position: relative;
+  color: rgba(0, 0, 0, 0.651);
+  font-size: 15px;
+  font-weight: 500;
+  top: -2px;
+}
