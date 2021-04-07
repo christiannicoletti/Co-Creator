@@ -31,6 +31,3 @@ Project has been scrapped, no further contributions needed.
 "redux": "^4.0.4",<br />
 "redux-thunk": "^2.3.0",<br />
 "typescript": "^3.6.4"<br />
-
-## Licensing
-The content of this repository is licensed under the terms specified in the [LICENSE](https://github.com/christiannicoletti/Showcase/blob/master/LICENSE) file.
