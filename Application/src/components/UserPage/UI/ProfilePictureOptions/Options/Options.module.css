@@ -1,0 +1,13 @@
+.Option {
+    position: relative;
+    color: white;
+    background-color: black;
+    border-bottom: 1px solid white;
+    padding: 3px;
+    padding-left: 5px;
+}
+
+.Option:hover {
+    cursor: pointer;
+    background-color: rgb(128, 128, 128);
+}

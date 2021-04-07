@@ -1,0 +1,9 @@
+.ProfilePictureOptionsContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: -440px;
+    background-color: black;
+    border: 1px solid white;
+    width: 200px;
+  }
