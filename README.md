@@ -18,16 +18,12 @@ A super rad project hosting web app
 ## Contributions
 Project has been scrapped, no further contributions needed.
 
-## Libraries used
+## Packages
 "axios": "^0.19.0",<br />
-"cors": "^2.8.5",<br />
-"enzyme": "^3.10.0",<br />
 "prop-types": "^15.7.2",<br />
 "react": "^16.10.2",<br />
 "react-dom": "^16.10.2",<br />
 "react-redux": "^7.1.1",<br />
 "react-router-dom": "^5.1.2",<br />
 "react-scripts": "3.2.0",<br />
-"redux": "^4.0.4",<br />
 "redux-thunk": "^2.3.0",<br />
-"typescript": "^3.6.4"<br />
