@@ -1,6 +1,6 @@
 # Co-Creator
 
-**!!This project was scrapped, but still works!!**
+**This project was scrapped, but still works**
 
 A super rad project hosting web app
 
