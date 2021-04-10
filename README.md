@@ -11,7 +11,7 @@ A super rad project hosting web app
 
 1. Download [npm](https://www.npmjs.com/get-npm) from Node.js
 2. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) this repository
-3. While in the root directory of this repo, run *npm start*
+3. While in the root directory of this repo, run "*npm start*"
 
 ** THIS WEB APP USES A BACKEND IN A PRIVATE REPO. YOU CAN'T EDIT THE BACKEND, BUT IT WILL STILL WORK **
 
@@ -31,6 +31,3 @@ Project has been scrapped, no further contributions needed.
 "redux": "^4.0.4",<br />
 "redux-thunk": "^2.3.0",<br />
 "typescript": "^3.6.4"<br />
-
-## Licensing
-The content of this repository is licensed under the terms specified in the [LICENSE](https://github.com/christiannicoletti/Showcase/blob/master/LICENSE) file.
