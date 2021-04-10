@@ -4,7 +4,7 @@
 
 A super rad project hosting web app
 
-<img src="https://res.cloudinary.com/personaluse1234/image/upload/v1617216690/cocreatorfirstpage_qezhyk.png" width="1000">&nbsp;
+<img src="https://res.cloudinary.com/personaluse1234/image/upload/v1618090865/cocreatorfirstpageupdated_cn3urw.png" width="1000">&nbsp;
 <img src="https://res.cloudinary.com/personaluse1234/image/upload/v1617215999/CoCreatorwebapp_lzqnin.png" width="1000">&nbsp;
 
 ## Getting started
