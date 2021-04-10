@@ -81,6 +81,12 @@
   top: 90px;
 }
 
+.Logo {
+  height: 100px;
+  width: 60%;
+  justify-content: center;
+}
+
 .IconContainer {
   width: 100%;
   justify-content: center;

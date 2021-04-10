@@ -31,7 +31,7 @@ class ui extends Component {
         <Layout />
         <div className={classes.MainContainer}>
         <div className={classes.UiContainer}>
-          <Logo />
+          <Logo className={classes.Logo}/>
           <div className={classes.Slogan}>
             Making the project creation process easier
           </div>
