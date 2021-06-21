@@ -1,4 +1,4 @@
-# Co-Creator [Scrapped]
+# Co-Creator
 
 ### --------- This project was scrapped early ------------
 
