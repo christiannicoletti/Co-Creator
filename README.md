@@ -1,12 +1,11 @@
-# Co-Creator
+# Co-Creator [Scrapped]
 
-**------------ This project was scrapped early ------------**
+### --------- This project was scrapped early ------------
 
 A super rad project hosting web app
 
 [Co-Creator](https://co-creator.io/)
 
-<img src="https://res.cloudinary.com/personaluse1234/image/upload/v1618090865/cocreatorfirstpageupdated_cn3urw.png" width="1000">&nbsp;
 <img src="https://res.cloudinary.com/personaluse1234/image/upload/v1617215999/CoCreatorwebapp_lzqnin.png" width="1000">&nbsp;
 
 ## Getting started
