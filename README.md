@@ -4,8 +4,6 @@
 
 A super rad project hosting web app
 
-[Co-Creator](https://co-creator.io/)
-
 <img src="https://res.cloudinary.com/personaluse1234/image/upload/v1617215999/CoCreatorwebapp_lzqnin.png" width="1000">&nbsp;
 
 ## Getting started
